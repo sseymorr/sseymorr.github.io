@@ -1,5 +1,5 @@
 ---
-title: "😎 flutter / solutions"
+title: "flutter / solutions"
 layout: category
 permalink: /flutter/solutions/
 author_profile: true

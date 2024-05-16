@@ -1,5 +1,5 @@
 ---
-title: "🚫 flutter / errors"
+title: "flutter / errors"
 layout: category
 permalink: /flutter/errors/
 author_profile: true

@@ -18,7 +18,7 @@ main:
 sidebar-category:
   - title: "flutter"
     children:
-      - title: "🚫 errors"
+      - title: "errors"
         url: "flutter/errors/"
-      - title: "😎 solutions"
+      - title: "solutions"
         url: "flutter/solutions/"
