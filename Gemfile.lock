@@ -1,5 +1,6 @@
-PATH
-  remote: .
+GIT
+  remote: https://github.com/mmistakes/minimal-mistakes.git
+  revision: 4efb8638c490eee15f71d77dad5fd85e0b7cbae0
   specs:
     minimal-mistakes-jekyll (4.26.1)
       jekyll (>= 3.7, < 5.0)
@@ -176,9 +177,9 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bundler
+  jekyll
+  kramdown-parser-gfm
   minimal-mistakes-jekyll!
-  rake (>= 12.3.3)
 
 BUNDLED WITH
    2.5.9

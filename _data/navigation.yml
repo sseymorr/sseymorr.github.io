@@ -1,12 +1,24 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+#  - title: "Quick-Start Guide"
+#    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+   - title: "home"
+     url: https://sseymorr.github.io   
+   - title: "about"
+     url: /about/
+   - title: "portfolio"
+     url: /portfolio/     
+   - title: "categories"
+     url: /categories/
+
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+sidebar-category:
+  - title: "flutter"
+    children:
+      - title: "🚫 errors"
+        url: "flutter/errors/"
+      - title: "😎 solutions"
+        url: "flutter/solutions/"
