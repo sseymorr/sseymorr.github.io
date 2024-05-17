@@ -16,9 +16,17 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 sidebar-category:
-  - title: "flutter"
+  - title: "🖤 flutter"
     children:
-      - title: "errors"
+      - title: "🚫 errors"
         url: "flutter/errors/"
-      - title: "solutions"
+      - title: "😎 solutions"
         url: "flutter/solutions/"
+  - title: "🖤 ios"
+    children:
+      - title: "✨ swift"
+        url: "ios/swift/"
+      - title: "🚫 errors"
+        url: "ios/errors/"
+      - title: "😎 solutions"
+        url: "ios/solutions/"

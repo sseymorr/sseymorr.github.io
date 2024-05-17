@@ -7,6 +7,24 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+
+    <link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://sseymorr.github.io/assets/images/favicon/apple-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-16x16.png"
+/>
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
