@@ -1,1 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-17T13:32:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">sseymorr’s paper bag</title><subtitle>nothing much</subtitle><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[플러터 웹] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[플러터 웹] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;solutions&quot;]" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-17T15:14:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">sseymorr’s paper bag</title><subtitle>nothing much</subtitle><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[플러터 웹] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[플러터 웹] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="목표">목표</h3>
+<p>flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기</p>
+
+<h3 id="사용한-라이브러리">사용한 라이브러리</h3>
+<ol>
+  <li>image_picker_web: <a href="https://pub.dev/packages/image_picker_web">https://pub.dev/packages/image_picker_web</a></li>
+  <li>image_cropper: <a href="https://pub.dev/packages/image_cropper">https://pub.dev/packages/image_cropper</a></li>
+</ol>
+
+<h3 id="기본-세팅">기본 세팅</h3>
+<h4 id="1-pubspecyaml">1. pubspec.yaml</h4>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
+  <span class="na">flutter</span><span class="pi">:</span>
+    <span class="na">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
+  <span class="na">image_picker_web</span><span class="pi">:</span> <span class="s">^3.1.1</span>
+  <span class="na">http</span><span class="pi">:</span> <span class="s">^0.13.5</span>
+  <span class="na">image_cropper</span><span class="pi">:</span> <span class="s">^3.0.1</span>
+</code></pre></div></div>
+<h4 id="2-webindexhtml">2. web/index.html</h4>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+  <span class="c">&lt;!-- Croppie --&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">defer</span> <span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre></div></div>
+<h3 id="-주의-사항"><img width="25" alt="star1" src="https://user-images.githubusercontent.com/78655692/151471925-e5f35751-d4b9-416b-b41d-a059267a09e3.png" /> 주의 사항</h3>
+<p class="notice--warning">플러터 웹에서 로컬 파일 시스템에 직접 접근하는 것(File 형태로)은 보안상의 이유로 허용되지 않으므로 blob 형태의 url로 변환해야 함.</p>
+<h3 id="전체-소스-코드-maindart">전체 소스 코드 (main.dart)</h3>
+<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:html'</span> <span class="k">as</span> <span class="n">html</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:image_cropper/image_cropper.dart'</span><span class="o">;</span>
+<span class="kn">import</span> <span class="s">'package:image_picker_web/image_picker_web.dart'</span><span class="o">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">runApp</span><span class="p">(</span><span class="kd">const</span> <span class="n">MyApp</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="n">MyApp</span><span class="p">({</span><span class="k">super</span><span class="o">.</span><span class="na">key</span><span class="p">});</span>
+
+  <span class="c1">// This widget is the root of your application.</span>
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">const</span> <span class="n">MaterialApp</span><span class="p">(</span>
+      <span class="nl">title:</span> <span class="s">'Flutter Demo'</span><span class="p">,</span>
+      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="p">(</span><span class="nl">title:</span> <span class="s">'Image cropper! 🍏'</span><span class="p">),</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="n">MyHomePage</span><span class="p">({</span><span class="k">super</span><span class="o">.</span><span class="na">key</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="p">});</span>
+
+  <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="p">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">State</span><span class="p">&lt;</span><span class="n">MyHomePage</span><span class="p">&gt;</span> <span class="n">createState</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">_MyHomePageState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="p">&lt;</span><span class="n">MyHomePage</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="kt">String</span> <span class="n">croppedBlobUrl</span> <span class="o">=</span> <span class="s">''</span><span class="p">;</span>
+  <span class="kt">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="s">''</span><span class="p">;</span>
+
+  <span class="nd">@override</span>
+  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
+      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
+        <span class="nl">backgroundColor:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="na">colorScheme</span><span class="o">.</span><span class="na">inversePrimary</span><span class="p">,</span>
+        <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="na">title</span><span class="p">),</span>
+      <span class="p">),</span>
+      <span class="nl">body:</span> <span class="n">SingleChildScrollView</span><span class="p">(</span>
+        <span class="nl">scrollDirection:</span> <span class="n">Axis</span><span class="o">.</span><span class="na">vertical</span><span class="p">,</span>
+        <span class="nl">child:</span> <span class="n">Center</span><span class="p">(</span>
+          <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
+            <span class="nl">crossAxisAlignment:</span> <span class="n">CrossAxisAlignment</span><span class="o">.</span><span class="na">center</span><span class="p">,</span>
+            <span class="nl">children:</span> <span class="p">[</span>
+              <span class="n">Padding</span><span class="p">(</span>
+                <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="p">(</span><span class="mf">15.0</span><span class="p">),</span>
+                <span class="nl">child:</span> <span class="n">SizedBox</span><span class="p">(</span>
+                  <span class="nl">width:</span> <span class="mi">300</span><span class="p">,</span>
+                  <span class="nl">height:</span> <span class="mi">300</span><span class="p">,</span>
+                  <span class="nl">child:</span> <span class="n">croppedBlobUrl</span> <span class="o">!=</span> <span class="s">''</span>
+                      <span class="o">?</span> <span class="n">CircleAvatar</span><span class="p">(</span>
+                          <span class="nl">radius:</span> <span class="mi">50</span><span class="p">,</span> <span class="c1">// 원하는 크기 지정</span>
+                          <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">transparent</span><span class="p">,</span>
+                          <span class="nl">backgroundImage:</span> <span class="n">NetworkImage</span><span class="p">(</span><span class="n">croppedBlobUrl</span><span class="p">),</span>
+                        <span class="p">)</span>
+                      <span class="o">:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">disabled_by_default_rounded</span><span class="p">),</span>
+                <span class="p">),</span>
+              <span class="p">),</span>
+              <span class="n">ElevatedButton</span><span class="o">.</span><span class="na">icon</span><span class="p">(</span>
+                  <span class="nl">onPressed:</span> <span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
+                    <span class="n">pickAndCropImage</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+                  <span class="p">},</span>
+                  <span class="nl">icon:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">image</span><span class="p">),</span>
+                  <span class="nl">label:</span> <span class="kd">const</span> <span class="n">Text</span><span class="p">(</span><span class="s">'pick an image from gallery'</span><span class="p">))</span>
+            <span class="p">],</span>
+          <span class="p">),</span>
+        <span class="p">),</span>
+      <span class="p">),</span> 
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="n">Future</span><span class="p">&lt;</span><span class="kt">void</span><span class="p">&gt;</span> <span class="n">pickAndCropImage</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="n">html</span><span class="o">.</span><span class="na">File</span><span class="o">?</span> <span class="n">imageFile</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="n">ImagePickerWeb</span><span class="o">.</span><span class="na">getMultiImagesAsFile</span><span class="p">())</span><span class="o">?</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+
+    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">imageFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fileName</span> <span class="o">=</span> <span class="n">imageFile</span><span class="o">.</span><span class="na">name</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="na">mounted</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">cropImage</span><span class="p">(</span><span class="n">imageFile</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="n">Future</span><span class="p">&lt;</span><span class="kt">void</span><span class="p">&gt;</span> <span class="n">cropImage</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="na">File</span> <span class="n">imageFile</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="n">imageUrl</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="na">Url</span><span class="o">.</span><span class="na">createObjectUrlFromBlob</span><span class="p">(</span><span class="n">imageFile</span><span class="p">);</span>
+    <span class="kd">final</span> <span class="n">croppedFile</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ImageCropper</span><span class="p">()</span><span class="o">.</span><span class="na">cropImage</span><span class="p">(</span>
+      <span class="nl">sourcePath:</span> <span class="n">imageUrl</span><span class="p">,</span>
+      <span class="nl">aspectRatioPresets:</span> <span class="p">[</span>
+        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">square</span><span class="p">,</span>
+        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio3x2</span><span class="p">,</span>
+        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">original</span><span class="p">,</span>
+        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio4x3</span><span class="p">,</span>
+        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio16x9</span>
+      <span class="p">],</span>
+      <span class="nl">uiSettings:</span> <span class="p">[</span><span class="n">WebUiSettings</span><span class="p">(</span><span class="nl">context:</span> <span class="n">context</span><span class="p">)],</span>
+    <span class="p">);</span>
+
+    <span class="n">html</span><span class="o">.</span><span class="na">Url</span><span class="o">.</span><span class="na">revokeObjectUrl</span><span class="p">(</span><span class="n">imageUrl</span><span class="p">);</span>
+
+    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">croppedFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">croppedBlobUrl</span> <span class="o">=</span> <span class="n">croppedFile</span><span class="o">.</span><span class="na">path</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="동작-확인">동작 확인</h3>
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flutter</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nx">web</span><span class="w">
+</span><span class="n">flutter</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">chrome</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="결과물">결과물</h3>
+<center><img width="600" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d" /></center>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;solutions&quot;]" /><summary type="html"><![CDATA[플러터 웹에서 이미지를 가져와 크롭해보자!]]></summary></entry></feed>
