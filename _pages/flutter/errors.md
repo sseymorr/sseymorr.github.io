@@ -14,8 +14,9 @@ sidebar:
   enabled: true
 ---
 
-{% assign posts = site.posts where_exp: "post", "post.categories contains 'flutter' and post.categories contains 'errors'" %}
+{% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
+{% assign posts_with_flutter_and_errors = posts_with_flutter | where: "categories", "errors" %}
 
-{% for post in posts %}
+{% for post in posts_with_flutter_and_errors %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}

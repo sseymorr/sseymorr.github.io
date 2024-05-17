@@ -14,8 +14,9 @@ sidebar:
   enabled: true
 ---
 
-{% assign posts = site.posts where_exp: "post", "post.categories contains 'ios' and post.categories contains 'swift'" %}
+{% assign posts_with_ios = site.posts | where: "categories", "ios" %}
+{% assign posts_with_ios_and_swift = posts_with_ios | where: "categories", "swift" %}
 
-{% for post in posts %}
+{% for post in posts_with_ios_and_swift %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
