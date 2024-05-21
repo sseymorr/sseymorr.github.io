@@ -30,3 +30,16 @@ sidebar-category:
         url: "ios/errors/"
       - title: "😎 solutions"
         url: "ios/solutions/"
+  - title: "🖤 git"
+    children:
+      - title: "😎 solutions"
+        url: "git/solutions/"
+  - title: "❤️‍🔥 area"
+    children:
+      - title: "🌎 english"
+        url: "area/english/"
+  - title: "📚 archive"
+    children: 
+      - title: "✏️ blog"
+        url: "archive/blog/"
+      

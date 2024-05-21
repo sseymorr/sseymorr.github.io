@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-17T15:14:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">sseymorr’s paper bag</title><subtitle>nothing much</subtitle><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[플러터 웹] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[플러터 웹] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="목표">목표</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-21T13:59:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">sseymorr’s paper bag</title><subtitle>nothing much</subtitle><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[플러터 웹] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[플러터 웹] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
 <p>flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기</p>
 
-<h3 id="사용한-라이브러리">사용한 라이브러리</h3>
+<h3 id="2️⃣-사용한-라이브러리">2️⃣ 사용한 라이브러리</h3>
 <ol>
   <li>image_picker_web: <a href="https://pub.dev/packages/image_picker_web">https://pub.dev/packages/image_picker_web</a></li>
   <li>image_cropper: <a href="https://pub.dev/packages/image_cropper">https://pub.dev/packages/image_cropper</a></li>
 </ol>
 
-<h3 id="기본-세팅">기본 세팅</h3>
+<h3 id="3️⃣-기본-세팅">3️⃣ 기본 세팅</h3>
 <h4 id="1-pubspecyaml">1. pubspec.yaml</h4>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
   <span class="na">flutter</span><span class="pi">:</span>
@@ -26,7 +26,7 @@
 </code></pre></div></div>
 <h3 id="-주의-사항"><img width="25" alt="star1" src="https://user-images.githubusercontent.com/78655692/151471925-e5f35751-d4b9-416b-b41d-a059267a09e3.png" /> 주의 사항</h3>
 <p class="notice--warning">플러터 웹에서 로컬 파일 시스템에 직접 접근하는 것(File 형태로)은 보안상의 이유로 허용되지 않으므로 blob 형태의 url로 변환해야 함.</p>
-<h3 id="전체-소스-코드-maindart">전체 소스 코드 (main.dart)</h3>
+<h3 id="4️⃣-전체-소스-코드-maindart">4️⃣ 전체 소스 코드 (main.dart)</h3>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:html'</span> <span class="k">as</span> <span class="n">html</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
@@ -141,10 +141,120 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="동작-확인">동작 확인</h3>
+<h3 id="5️⃣-동작-확인">5️⃣ 동작 확인</h3>
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flutter</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nx">web</span><span class="w">
 </span><span class="n">flutter</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">chrome</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="결과물">결과물</h3>
-<center><img width="600" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d" /></center>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;solutions&quot;]" /><summary type="html"><![CDATA[플러터 웹에서 이미지를 가져와 크롭해보자!]]></summary></entry></feed>
+<h3 id="6️⃣-결과물">6️⃣ 결과물</h3>
+<center><img width="600" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d" /></center>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;solutions&quot;]" /><summary type="html"><![CDATA[플러터 웹에서 이미지를 가져와 크롭해보자!]]></summary></entry><entry><title type="html">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기</title><link href="http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="alternate" type="text/html" title="[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes</id><content type="html" xml:base="http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
+<p>jekyll minimal-mistakes 테마에서 이중으로 카테고리를 분류해보기</p>
+<blockquote>
+  <p>이렇게! 😀</p>
+</blockquote>
+<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/3d031327-de10-4d8e-9b6e-9612778a99bd" /></p>
+
+<h3 id="2️⃣-기본-세팅">2️⃣ 기본 세팅</h3>
+<h4 id="1-indexhtml">1. index.html</h4>
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">home</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">sidebar</span><span class="pi">:</span>
+    <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span> <span class="s">⬅️ 추가된 부분</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<h4 id="2-_configyml">2. _config.yml</h4>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Defaults</span>
+<span class="na">defaults</span><span class="pi">:</span>
+  <span class="c1"># _posts</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">single</span>
+      <span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">read_time</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">comments</span><span class="pi">:</span> <span class="c1"># true</span>
+      <span class="na">share</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">related</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">sidebar</span><span class="pi">:</span>
+        <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span> <span class="c1"># 추가된 부분</span>
+</code></pre></div></div>
+
+<h3 id="3️⃣-카테고리-설정하기">3️⃣ 카테고리 설정하기</h3>
+<h4 id="1-_datanavigationyml">1. _data/navigation.yml</h4>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="na">sidebar-category</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🖤</span><span class="nv"> </span><span class="s">flutter"</span>
+    <span class="na">children</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🚫</span><span class="nv"> </span><span class="s">errors"</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">flutter/errors/"</span>
+      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">solutions"</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">flutter/solutions/"</span>
+  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🖤</span><span class="nv"> </span><span class="s">ios"</span>
+    <span class="na">children</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">✨</span><span class="nv"> </span><span class="s">swift"</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/swift/"</span>
+      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🚫</span><span class="nv"> </span><span class="s">errors"</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/errors/"</span>
+      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">solutions"</span>
+        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/solutions/"</span>
+</code></pre></div></div>
+<h4 id="2-_pages-폴더">2. _pages 폴더</h4>
+<p>_pages 폴더 하위에 카테고리에 맞춰 폴더 생성 뒤 각 카테고리를 선택했을 때 보여줄 화면 추가</p>
+<ul>
+  <li>폴더 구조</li>
+</ul>
+
+<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/67f70570-b8f2-43f0-ab31-8d25ec42f9cb" /></p>
+
+<ul>
+  <li>예를 들어 ios/solutions 카테고리를 클릭했을 때 보여질 화면의 코드</li>
+</ul>
+
+<p class="notice--info">ios 카테고리에도 포함되고, solutions 카테고리에도 포함된 글들만 가져오는 liquid문을 추가</p>
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
+{% assign posts_with_flutter_and_solutions = posts_with_flutter | where: "categories", "solutions" %}
+
+{% for post in posts_with_flutter_and_solutions %}
+  {% include archive-single.html type=page.entries_layout %}
+{% endfor %}
+
+</code></pre></div></div>
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">flutter</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">solutions"</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">category</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/flutter/solutions/</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">sidebar_main</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">types</span><span class="pi">:</span> <span class="s">posts</span>
+<span class="na">taxonomy</span><span class="pi">:</span>
+  <span class="na">category</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">flutter</span>
+    <span class="pi">-</span> <span class="s">solutions</span>
+<span class="na">sidebar</span><span class="pi">:</span>
+  <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+
+
+{% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
+{% assign posts_with_flutter_and_solutions = posts_with_flutter | where: "categories", "solutions" %}
+
+{% for post in posts_with_flutter_and_solutions %}
+  {% include archive-single.html type=page.entries_layout %}
+{% endfor %}<span class="sb">
+
+
+</span></code></pre></div></div>
+<h4 id="3-_posts-폴더">3. _posts 폴더</h4>
+<p>루트 폴더에 하위에 카테고리에 맞춰 폴더 추가한 뒤 해당 카테고리 하위에 _posts 폴더 추가</p>
+<ul>
+  <li>예를 들어 ios/solutions에 해당하는 카테고리에 글을 추가하는 경우 다음과 같이 폴더를 만든 뒤 _post에 <strong>yyyy-mm-dd-글제목.md</strong> 형태로 글을 추가</li>
+</ul>
+
+<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/fde6c4c7-3a5f-4673-ae7e-e79c8698f4c8" /></p>
+
+<h3 id="4️⃣-결과물">4️⃣ 결과물</h3>
+<p>flutter/solutions 카테고리를 클릭했을 때 1) flutter 2) solutions <strong>두 개의 카테고리가 모두 설정된 글들만</strong> 선택되어 노출</p>
+<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b80ce01c-7cfa-47f5-8854-977dd2096989" /></p>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;git&quot;, &quot;solutions&quot;]" /><category term="minimal-mistakes" /><category term="GitHubPages" /><summary type="html"><![CDATA[jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!]]></summary></entry></feed>

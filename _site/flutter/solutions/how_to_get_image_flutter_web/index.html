@@ -344,6 +344,48 @@
           
         </li>
       
+        <li>
+          
+            <span class="nav__sub-title">🖤 git</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/git/solutions/">😎 solutions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">❤️‍🔥 area</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/area/english/">🌎 english</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">📚 archive</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/archive/blog/">✏️ blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
     
   </ul>
 </nav>
@@ -396,20 +438,20 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> index</h4></header>
-              <ul class="toc__menu"><li><a href="#목표">목표</a></li><li><a href="#사용한-라이브러리">사용한 라이브러리</a></li><li><a href="#기본-세팅">기본 세팅</a><ul><li><a href="#1-pubspecyaml">1. pubspec.yaml</a></li><li><a href="#2-webindexhtml">2. web/index.html</a></li></ul></li><li><a href="#-주의-사항"> 주의 사항</a></li><li><a href="#전체-소스-코드-maindart">전체 소스 코드 (main.dart)</a></li><li><a href="#동작-확인">동작 확인</a></li><li><a href="#결과물">결과물</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1️⃣-목표">1️⃣ 목표</a></li><li><a href="#2️⃣-사용한-라이브러리">2️⃣ 사용한 라이브러리</a></li><li><a href="#3️⃣-기본-세팅">3️⃣ 기본 세팅</a><ul><li><a href="#1-pubspecyaml">1. pubspec.yaml</a></li><li><a href="#2-webindexhtml">2. web/index.html</a></li></ul></li><li><a href="#-주의-사항"> 주의 사항</a></li><li><a href="#4️⃣-전체-소스-코드-maindart">4️⃣ 전체 소스 코드 (main.dart)</a></li><li><a href="#5️⃣-동작-확인">5️⃣ 동작 확인</a></li><li><a href="#6️⃣-결과물">6️⃣ 결과물</a></li></ul>
             </nav>
           </aside>
         
-        <h3 id="목표">목표</h3>
+        <h3 id="1️⃣-목표">1️⃣ 목표</h3>
 <p>flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기</p>
 
-<h3 id="사용한-라이브러리">사용한 라이브러리</h3>
+<h3 id="2️⃣-사용한-라이브러리">2️⃣ 사용한 라이브러리</h3>
 <ol>
   <li>image_picker_web: <a href="https://pub.dev/packages/image_picker_web">https://pub.dev/packages/image_picker_web</a></li>
   <li>image_cropper: <a href="https://pub.dev/packages/image_cropper">https://pub.dev/packages/image_cropper</a></li>
 </ol>
 
-<h3 id="기본-세팅">기본 세팅</h3>
+<h3 id="3️⃣-기본-세팅">3️⃣ 기본 세팅</h3>
 <h4 id="1-pubspecyaml">1. pubspec.yaml</h4>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">dependencies</span><span class="pi">:</span>
   <span class="na">flutter</span><span class="pi">:</span>
@@ -428,7 +470,7 @@
 </code></pre></div></div>
 <h3 id="-주의-사항"><img width="25" alt="star1" src="https://user-images.githubusercontent.com/78655692/151471925-e5f35751-d4b9-416b-b41d-a059267a09e3.png" /> 주의 사항</h3>
 <p class="notice--warning">플러터 웹에서 로컬 파일 시스템에 직접 접근하는 것(File 형태로)은 보안상의 이유로 허용되지 않으므로 blob 형태의 url로 변환해야 함.</p>
-<h3 id="전체-소스-코드-maindart">전체 소스 코드 (main.dart)</h3>
+<h3 id="4️⃣-전체-소스-코드-maindart">4️⃣ 전체 소스 코드 (main.dart)</h3>
 <div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="s">'dart:html'</span> <span class="k">as</span> <span class="n">html</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
@@ -543,12 +585,12 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="동작-확인">동작 확인</h3>
+<h3 id="5️⃣-동작-확인">5️⃣ 동작 확인</h3>
 <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flutter</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nx">web</span><span class="w">
 </span><span class="n">flutter</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">chrome</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="결과물">결과물</h3>
+<h3 id="6️⃣-결과물">6️⃣ 결과물</h3>
 <center><img width="600" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d" /></center>
 
         
@@ -596,6 +638,16 @@
 
 
       
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" class="pagination--pager" title="[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+">Next</a>
+    
+  </nav>
+
     </div>
 
     
@@ -610,9 +662,50 @@
   <div class="grid__wrapper">
     
       
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="permalink">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!
+</p>
+  </article>
+</div>
+
+    
   </div>
 </div>
 
+  
   
 </div>
 

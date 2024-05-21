@@ -7,15 +7,17 @@ toc_sticky: true
 category:
     - flutter
     - solutions
+tag:
+
 ---
-### 목표
+### 1️⃣ 목표
 flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기
 
-### 사용한 라이브러리
+### 2️⃣ 사용한 라이브러리
 1. image_picker_web: [https://pub.dev/packages/image_picker_web](https://pub.dev/packages/image_picker_web)
 2. image_cropper: [https://pub.dev/packages/image_cropper](https://pub.dev/packages/image_cropper)
 
-### 기본 세팅
+### 3️⃣ 기본 세팅
 #### 1. pubspec.yaml
 ```yaml
 dependencies:
@@ -37,7 +39,7 @@ dependencies:
 ### <img width="25" alt="star1" src="https://user-images.githubusercontent.com/78655692/151471925-e5f35751-d4b9-416b-b41d-a059267a09e3.png"> 주의 사항
 플러터 웹에서 로컬 파일 시스템에 직접 접근하는 것(File 형태로)은 보안상의 이유로 허용되지 않으므로 blob 형태의 url로 변환해야 함.
 {: .notice--warning}
-### 전체 소스 코드 (main.dart)
+### 4️⃣ 전체 소스 코드 (main.dart)
 ```dart
 import 'dart:html' as html;
 
@@ -153,11 +155,11 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-### 동작 확인
+### 5️⃣ 동작 확인
 ```powershell
 flutter build web
 flutter run -d chrome
 ```
 
-### 결과물
+### 6️⃣ 결과물
 <center><img width='600' src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d"></center>
