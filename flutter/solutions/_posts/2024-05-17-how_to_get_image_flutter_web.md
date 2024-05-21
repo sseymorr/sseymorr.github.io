@@ -8,7 +8,7 @@ category:
     - flutter
     - solutions
 tag:
-
+comments: true
 ---
 ### 1️⃣ 목표
 flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기

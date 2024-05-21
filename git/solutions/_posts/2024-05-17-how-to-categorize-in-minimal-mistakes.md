@@ -10,6 +10,7 @@ category:
 tag:
     - minimal-mistakes
     - GitHubPages
+comments: true
 ---
 
 ### 1️⃣ 목표

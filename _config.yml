@@ -23,7 +23,7 @@ name                     : "sseymorr"
 description              : "nothing much"
 url                      : "https://sseymorr.github.io" # the base hostname & protocol for your site e.g. "https://sseymorr.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "https://github.com/sseymorr/sseymorr.github.io.git" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "sseymorr/sseymorr.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : "sseymorr's paper bag" # overrides the website title displayed in the masthead, use " " for no title
@@ -308,7 +308,9 @@ compress_html:
   ignore:
     envs: development
 
+markdown: kramdown
 kramdown:
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
       line_numbers: true
