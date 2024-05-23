@@ -10,4 +10,10 @@ var store = [{
         "tags": ["minimal-mistakes","GitHubPages"],
         "url": "/git/solutions/how-to-categorize-in-minimal-mistakes/",
         "teaser": null
+      },{
+        "title": "[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)",
+        "excerpt":"1️⃣ 들어가기 전에… 1) 변수와 상수의 차이 (1) 변수: 값이 변경될 수 있는 저장소 프로그램 실행 중 언제든지 변수에 새로운 값 할당 가능 타입 추론 가능 1 2 3 var currentTemperature = 25.0 currentTemperature = 30.0 print(currentTemperature) // 30.0 (2) 상수: 값이 변경될 수 없는 저장소 한번 값이 할당되면 더...","categories": ["ios","swift"],
+        "tags": [],
+        "url": "/ios/swift/data-type-advanced/",
+        "teaser": null
       }]

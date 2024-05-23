@@ -1,4 +1,447 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-23T16:25:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">sseymorr’s paper bag</title><subtitle>nothing much</subtitle><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)</title><link href="http://localhost:4000/ios/swift/data-type-advanced/" rel="alternate" type="text/html" title="[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)" /><published>2024-05-23T00:00:00+09:00</published><updated>2024-05-23T00:00:00+09:00</updated><id>http://localhost:4000/ios/swift/data-type-advanced</id><content type="html" xml:base="http://localhost:4000/ios/swift/data-type-advanced/"><![CDATA[<h3 id="1️⃣-들어가기-전에">1️⃣ 들어가기 전에…</h3>
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.1 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형) - sseymorr’s paper bag</title>
+<meta name="description" content="튜플, 컬렉션(배열, 딕셔너리, 세트), 열거형 데이터 타입에 대해서 알아보기">
+
+
+  <meta name="author" content="sseymorr">
+  
+  <meta property="article:author" content="sseymorr">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="sseymorr's paper bag">
+<meta property="og:title" content="[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)">
+<meta property="og:url" content="http://localhost:4000/ios/swift/data-type-advanced/">
+
+
+  <meta property="og:description" content="튜플, 컬렉션(배열, 딕셔너리, 세트), 열거형 데이터 타입에 대해서 알아보기">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-05-23T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ios/swift/data-type-advanced/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="sseymorr's paper bag Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+    <link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://sseymorr.github.io/assets/images/favicon/apple-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-16x16.png"
+/>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          sseymorr's paper bag
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://sseymorr.github.io"
+                
+                
+              >home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >about</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/portfolio/"
+                
+                
+              >portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/"
+                
+                
+              >categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/profile/profile.PNG" alt="sseymorr" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">sseymorr</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>nothing much</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sseymorr" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sseymorrr@gmail.com" rel="me" class="u-email">
+            <meta itemprop="email" content="sseymorrr@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+    
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 flutter</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/flutter/errors/" >🚫 errors</a></li>
+        
+        <li><a href="/flutter/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 ios</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/ios/swift/" >✨ swift</a></li>
+        
+        <li><a href="/ios/errors/" >🚫 errors</a></li>
+        
+        <li><a href="/ios/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 git</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/git/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">❤️‍🔥 area</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/area/english/" >🌎 english</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">📚 archive</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/archive/blog/" >✏️ blog</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)">
+    <meta itemprop="description" content="튜플, 컬렉션(배열, 딕셔너리, 세트), 열거형 데이터 타입에 대해서 알아보기">
+    <meta itemprop="datePublished" content="2024-05-23T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/ios/swift/data-type-advanced/" itemprop="url">[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> index</h4></header>
+              <ul class="toc__menu"><li><a href="#1️⃣-들어가기-전에">1️⃣ 들어가기 전에…</a><ul><li><a href="#1-변수와-상수의-차이">1) 변수와 상수의 차이</a></li><li><a href="#2-값-타입-vs-참조-타입">2) 값 타입 vs 참조 타입</a></li></ul></li><li><a href="#2️⃣-튜플">2️⃣ 튜플</a><ul><li><a href="#1-개념">1. 개념</a></li><li><a href="#2-활용">2. 활용</a></li></ul></li><li><a href="#3️⃣-컬렉션">3️⃣ 컬렉션</a><ul><li><a href="#1-array">1. Array</a><ul><li><a href="#1-개념-1">1) 개념</a></li><li><a href="#2-배열-다루기">2) 배열 다루기</a></li><li><a href="#3-배열은-값-타입-특성">3) 배열은 값 타입 특성</a></li></ul></li><li><a href="#2-dictionary">2. Dictionary</a><ul><li><a href="#1-개념-2">1) 개념</a></li><li><a href="#2-딕셔너리-다루기">2) 딕셔너리 다루기</a></li><li><a href="#3-딕셔너리는-값-타입-특성">3) 딕셔너리는 값 타입 특성</a></li></ul></li><li><a href="#3-set">3. Set</a><ul><li><a href="#1-개념-3">1) 개념</a></li><li><a href="#2-set-다루기">2) Set 다루기</a></li><li><a href="#3-set은-값-타입-특성">3) Set은 값 타입 특성</a></li></ul></li></ul></li><li><a href="#4️⃣-열거형-enum">4️⃣ 열거형 (enum)</a><ul><li><a href="#1-개념-4">1) 개념</a></li><li><a href="#2-원시값">2) 원시값</a></li><li><a href="#3-연관값">3) 연관값</a></li><li><a href="#4-열거형-초기화">4) 열거형 초기화</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h3 id="1️⃣-들어가기-전에">1️⃣ 들어가기 전에…</h3>
 <h4 id="1-변수와-상수의-차이">1) 변수와 상수의 차이</h4>
 <p><strong>(1) 변수: 값이 변경될 수 있는 저장소</strong></p>
 <ul>
@@ -647,454 +1090,260 @@
 <span class="nf">print</span><span class="p">(</span><span class="s">"Selected beverage: </span><span class="se">\(</span><span class="n">selectedBeverage</span><span class="se">)</span><span class="s">."</span><span class="p">)</span>
 
 <span class="c1">// 출력: Selected beverage: coffee.</span>
-</pre></td></tr></tbody></table></code></pre></div></div>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;swift&quot;]" /><summary type="html"><![CDATA[튜플, 컬렉션(배열, 딕셔너리, 세트), 열거형 데이터 타입에 대해서 알아보기]]></summary></entry><entry><title type="html">[플러터 웹] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[플러터 웹] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
-<p>flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기</p>
-
-<h3 id="2️⃣-사용한-라이브러리">2️⃣ 사용한 라이브러리</h3>
-<ol>
-  <li>image_picker_web: <a href="https://pub.dev/packages/image_picker_web">https://pub.dev/packages/image_picker_web</a></li>
-  <li>image_cropper: <a href="https://pub.dev/packages/image_cropper">https://pub.dev/packages/image_cropper</a></li>
-</ol>
-
-<h3 id="3️⃣-기본-세팅">3️⃣ 기본 세팅</h3>
-<h4 id="1-pubspecyaml">1. pubspec.yaml</h4>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="na">dependencies</span><span class="pi">:</span>
-  <span class="na">flutter</span><span class="pi">:</span>
-    <span class="na">sdk</span><span class="pi">:</span> <span class="s">flutter</span>
-  <span class="na">image_picker_web</span><span class="pi">:</span> <span class="s">^3.1.1</span>
-  <span class="na">http</span><span class="pi">:</span> <span class="s">^0.13.5</span>
-  <span class="na">image_cropper</span><span class="pi">:</span> <span class="s">^3.0.1</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="2-webindexhtml">2. web/index.html</h4>
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nt">&lt;head&gt;</span>
-  <span class="c">&lt;!-- Croppie --&gt;</span>
-  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css"</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">defer</span> <span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h3 id="-주의-사항"><img width="25" alt="star1" src="https://user-images.githubusercontent.com/78655692/151471925-e5f35751-d4b9-416b-b41d-a059267a09e3.png" /> 주의 사항</h3>
-<p class="notice--warning">플러터 웹에서 로컬 파일 시스템에 직접 접근하는 것(File 형태로)은 보안상의 이유로 허용되지 않으므로 blob 형태의 url로 변환해야 함.</p>
-<h3 id="4️⃣-전체-소스-코드-maindart">4️⃣ 전체 소스 코드 (main.dart)</h3>
-<div class="language-dart highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="s">'dart:html'</span> <span class="k">as</span> <span class="n">html</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="s">'package:flutter/material.dart'</span><span class="o">;</span>
-<span class="kn">import</span> <span class="s">'package:image_cropper/image_cropper.dart'</span><span class="o">;</span>
-<span class="kn">import</span> <span class="s">'package:image_picker_web/image_picker_web.dart'</span><span class="o">;</span>
-
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">runApp</span><span class="p">(</span><span class="kd">const</span> <span class="n">MyApp</span><span class="p">());</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">StatelessWidget</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="n">MyApp</span><span class="p">({</span><span class="k">super</span><span class="o">.</span><span class="na">key</span><span class="p">});</span>
-
-  <span class="c1">// This widget is the root of your application.</span>
-  <span class="nd">@override</span>
-  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kd">const</span> <span class="n">MaterialApp</span><span class="p">(</span>
-      <span class="nl">title:</span> <span class="s">'Flutter Demo'</span><span class="p">,</span>
-      <span class="nl">home:</span> <span class="n">MyHomePage</span><span class="p">(</span><span class="nl">title:</span> <span class="s">'Image cropper! 🍏'</span><span class="p">),</span>
-    <span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">MyHomePage</span> <span class="kd">extends</span> <span class="n">StatefulWidget</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="n">MyHomePage</span><span class="p">({</span><span class="k">super</span><span class="o">.</span><span class="na">key</span><span class="p">,</span> <span class="kd">required</span> <span class="k">this</span><span class="o">.</span><span class="na">title</span><span class="p">});</span>
-
-  <span class="kd">final</span> <span class="kt">String</span> <span class="n">title</span><span class="p">;</span>
-
-  <span class="nd">@override</span>
-  <span class="n">State</span><span class="p">&lt;</span><span class="n">MyHomePage</span><span class="p">&gt;</span> <span class="n">createState</span><span class="p">()</span> <span class="o">=</span><span class="p">&gt;</span> <span class="n">_MyHomePageState</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">_MyHomePageState</span> <span class="kd">extends</span> <span class="n">State</span><span class="p">&lt;</span><span class="n">MyHomePage</span><span class="p">&gt;</span> <span class="p">{</span>
-  <span class="kt">String</span> <span class="n">croppedBlobUrl</span> <span class="o">=</span> <span class="s">''</span><span class="p">;</span>
-  <span class="kt">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="s">''</span><span class="p">;</span>
-
-  <span class="nd">@override</span>
-  <span class="n">Widget</span> <span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">Scaffold</span><span class="p">(</span>
-      <span class="nl">appBar:</span> <span class="n">AppBar</span><span class="p">(</span>
-        <span class="nl">backgroundColor:</span> <span class="n">Theme</span><span class="o">.</span><span class="na">of</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="na">colorScheme</span><span class="o">.</span><span class="na">inversePrimary</span><span class="p">,</span>
-        <span class="nl">title:</span> <span class="n">Text</span><span class="p">(</span><span class="n">widget</span><span class="o">.</span><span class="na">title</span><span class="p">),</span>
-      <span class="p">),</span>
-      <span class="nl">body:</span> <span class="n">SingleChildScrollView</span><span class="p">(</span>
-        <span class="nl">scrollDirection:</span> <span class="n">Axis</span><span class="o">.</span><span class="na">vertical</span><span class="p">,</span>
-        <span class="nl">child:</span> <span class="n">Center</span><span class="p">(</span>
-          <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
-            <span class="nl">crossAxisAlignment:</span> <span class="n">CrossAxisAlignment</span><span class="o">.</span><span class="na">center</span><span class="p">,</span>
-            <span class="nl">children:</span> <span class="p">[</span>
-              <span class="n">Padding</span><span class="p">(</span>
-                <span class="nl">padding:</span> <span class="kd">const</span> <span class="n">EdgeInsets</span><span class="o">.</span><span class="na">all</span><span class="p">(</span><span class="mf">15.0</span><span class="p">),</span>
-                <span class="nl">child:</span> <span class="n">SizedBox</span><span class="p">(</span>
-                  <span class="nl">width:</span> <span class="mi">300</span><span class="p">,</span>
-                  <span class="nl">height:</span> <span class="mi">300</span><span class="p">,</span>
-                  <span class="nl">child:</span> <span class="n">croppedBlobUrl</span> <span class="o">!=</span> <span class="s">''</span>
-                      <span class="o">?</span> <span class="n">CircleAvatar</span><span class="p">(</span>
-                          <span class="nl">radius:</span> <span class="mi">50</span><span class="p">,</span> <span class="c1">// 원하는 크기 지정</span>
-                          <span class="nl">backgroundColor:</span> <span class="n">Colors</span><span class="o">.</span><span class="na">transparent</span><span class="p">,</span>
-                          <span class="nl">backgroundImage:</span> <span class="n">NetworkImage</span><span class="p">(</span><span class="n">croppedBlobUrl</span><span class="p">),</span>
-                        <span class="p">)</span>
-                      <span class="o">:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">disabled_by_default_rounded</span><span class="p">),</span>
-                <span class="p">),</span>
-              <span class="p">),</span>
-              <span class="n">ElevatedButton</span><span class="o">.</span><span class="na">icon</span><span class="p">(</span>
-                  <span class="nl">onPressed:</span> <span class="p">()</span> <span class="kd">async</span> <span class="p">{</span>
-                    <span class="n">pickAndCropImage</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
-                  <span class="p">},</span>
-                  <span class="nl">icon:</span> <span class="kd">const</span> <span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="o">.</span><span class="na">image</span><span class="p">),</span>
-                  <span class="nl">label:</span> <span class="kd">const</span> <span class="n">Text</span><span class="p">(</span><span class="s">'pick an image from gallery'</span><span class="p">))</span>
-            <span class="p">],</span>
-          <span class="p">),</span>
-        <span class="p">),</span>
-      <span class="p">),</span> 
-    <span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="n">Future</span><span class="p">&lt;</span><span class="kt">void</span><span class="p">&gt;</span> <span class="n">pickAndCropImage</span><span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
-    <span class="n">html</span><span class="o">.</span><span class="na">File</span><span class="o">?</span> <span class="n">imageFile</span> <span class="o">=</span> <span class="p">(</span><span class="k">await</span> <span class="n">ImagePickerWeb</span><span class="o">.</span><span class="na">getMultiImagesAsFile</span><span class="p">())</span><span class="o">?</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-
-    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">imageFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fileName</span> <span class="o">=</span> <span class="n">imageFile</span><span class="o">.</span><span class="na">name</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="na">mounted</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">cropImage</span><span class="p">(</span><span class="n">imageFile</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-
-  <span class="n">Future</span><span class="p">&lt;</span><span class="kt">void</span><span class="p">&gt;</span> <span class="n">cropImage</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="na">File</span> <span class="n">imageFile</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
-    <span class="kd">final</span> <span class="n">imageUrl</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="na">Url</span><span class="o">.</span><span class="na">createObjectUrlFromBlob</span><span class="p">(</span><span class="n">imageFile</span><span class="p">);</span>
-    <span class="kd">final</span> <span class="n">croppedFile</span> <span class="o">=</span> <span class="k">await</span> <span class="n">ImageCropper</span><span class="p">()</span><span class="o">.</span><span class="na">cropImage</span><span class="p">(</span>
-      <span class="nl">sourcePath:</span> <span class="n">imageUrl</span><span class="p">,</span>
-      <span class="nl">aspectRatioPresets:</span> <span class="p">[</span>
-        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">square</span><span class="p">,</span>
-        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio3x2</span><span class="p">,</span>
-        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">original</span><span class="p">,</span>
-        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio4x3</span><span class="p">,</span>
-        <span class="n">CropAspectRatioPreset</span><span class="o">.</span><span class="na">ratio16x9</span>
-      <span class="p">],</span>
-      <span class="nl">uiSettings:</span> <span class="p">[</span><span class="n">WebUiSettings</span><span class="p">(</span><span class="nl">context:</span> <span class="n">context</span><span class="p">)],</span>
-    <span class="p">);</span>
-
-    <span class="n">html</span><span class="o">.</span><span class="na">Url</span><span class="o">.</span><span class="na">revokeObjectUrl</span><span class="p">(</span><span class="n">imageUrl</span><span class="p">);</span>
-
-    <span class="n">setState</span><span class="p">(()</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">croppedFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">croppedBlobUrl</span> <span class="o">=</span> <span class="n">croppedFile</span><span class="o">.</span><span class="na">path</span><span class="p">;</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="5️⃣-동작-확인">5️⃣ 동작 확인</h3>
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre><span class="n">flutter</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nx">web</span><span class="w">
-</span><span class="n">flutter</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nt">-d</span><span class="w"> </span><span class="nx">chrome</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></div></div>
+        
+      </section>
 
-<h3 id="6️⃣-결과물">6️⃣ 결과물</h3>
-<center><img width="600" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/edf9762b-b855-4ff4-ae31-65321a69490d" /></center>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;solutions&quot;]" /><summary type="html"><![CDATA[플러터 웹에서 이미지를 가져와 크롭해보자!]]></summary></entry><entry><title type="html">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기</title><link href="http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="alternate" type="text/html" title="[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes</id><content type="html" xml:base="http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
-<p>jekyll minimal-mistakes 테마에서 이중으로 카테고리를 분류해보기</p>
-<blockquote>
-  <p>이렇게! 😀</p>
-</blockquote>
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/3d031327-de10-4d8e-9b6e-9612778a99bd" /></p>
+      <footer class="page__meta">
+        
+        
 
-<h3 id="2️⃣-기본-세팅">2️⃣ 기본 세팅</h3>
-<h4 id="1-indexhtml">1. index.html</h4>
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">home</span>
-<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">sidebar</span><span class="pi">:</span>
-    <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span> <span class="s">⬅️ 추가된 부분</span>
-<span class="nn">---</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="2-_configyml">2. _config.yml</h4>
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre><span class="c1"># Defaults</span>
-<span class="na">defaults</span><span class="pi">:</span>
-  <span class="c1"># _posts</span>
-  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
-      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
-      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
-    <span class="na">values</span><span class="pi">:</span>
-      <span class="na">layout</span><span class="pi">:</span> <span class="s">single</span>
-      <span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
-      <span class="na">read_time</span><span class="pi">:</span> <span class="kc">true</span>
-      <span class="na">comments</span><span class="pi">:</span> <span class="c1"># true</span>
-      <span class="na">share</span><span class="pi">:</span> <span class="kc">true</span>
-      <span class="na">related</span><span class="pi">:</span> <span class="kc">true</span>
-      <span class="na">sidebar</span><span class="pi">:</span>
-        <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span> <span class="c1"># 추가된 부분</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="3️⃣-카테고리-설정하기">3️⃣ 카테고리 설정하기</h3>
-<h4 id="1-_datanavigationyml">1. _data/navigation.yml</h4>
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="rouge-code"><pre> <span class="na">sidebar-category</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🖤</span><span class="nv"> </span><span class="s">flutter"</span>
-    <span class="na">children</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🚫</span><span class="nv"> </span><span class="s">errors"</span>
-        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">flutter/errors/"</span>
-      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">solutions"</span>
-        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">flutter/solutions/"</span>
-  <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🖤</span><span class="nv"> </span><span class="s">ios"</span>
-    <span class="na">children</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">✨</span><span class="nv"> </span><span class="s">swift"</span>
-        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/swift/"</span>
-      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">🚫</span><span class="nv"> </span><span class="s">errors"</span>
-        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/errors/"</span>
-      <span class="pi">-</span> <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">solutions"</span>
-        <span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ios/solutions/"</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="2-_pages-폴더">2. _pages 폴더</h4>
-<p>_pages 폴더 하위에 카테고리에 맞춰 폴더 생성 뒤 각 카테고리를 선택했을 때 보여줄 화면 추가</p>
-<ul>
-  <li>폴더 구조</li>
-</ul>
+  
 
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/67f70570-b8f2-43f0-ab31-8d25ec42f9cb" /></p>
 
-<ul>
-  <li>예를 들어 ios/solutions 카테고리를 클릭했을 때 보여질 화면의 코드</li>
-</ul>
+  
 
-<p class="notice--info">ios 카테고리에도 포함되고, solutions 카테고리에도 포함된 글들만 가져오는 liquid문을 추가</p>
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="rouge-code"><pre>
-{% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
-{% assign posts_with_flutter_and_solutions = posts_with_flutter | where: "categories", "solutions" %}
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ios" class="page__taxonomy-item p-category" rel="tag">ios</a><span class="sep">, </span>
+    
+      <a href="/categories/#swift" class="page__taxonomy-item p-category" rel="tag">swift</a>
+    
+    </span>
+  </p>
 
-{% for post in posts_with_flutter_and_solutions %}
-  {% include archive-single.html type=page.entries_layout %}
-{% endfor %}
 
-</pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">😎</span><span class="nv"> </span><span class="s">flutter</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">solutions"</span>
-<span class="na">layout</span><span class="pi">:</span> <span class="s">category</span>
-<span class="na">permalink</span><span class="pi">:</span> <span class="s">/flutter/solutions/</span>
-<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">sidebar_main</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="na">types</span><span class="pi">:</span> <span class="s">posts</span>
-<span class="na">taxonomy</span><span class="pi">:</span>
-  <span class="na">category</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">flutter</span>
-    <span class="pi">-</span> <span class="s">solutions</span>
-<span class="na">sidebar</span><span class="pi">:</span>
-  <span class="na">nav</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sidebar-category"</span>
-  <span class="na">enabled</span><span class="pi">:</span> <span class="kc">true</span>
-<span class="nn">---</span>
+        
 
-{% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
-{% assign posts_with_flutter_and_solutions = posts_with_flutter | where: "categories", "solutions" %}
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-23T00:00:00+09:00">May 23, 2024</time></p>
 
-{% for post in posts_with_flutter_and_solutions %}
-  {% include archive-single.html type=page.entries_layout %}
-{% endfor %}
+      </footer>
 
-</pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="3-_posts-폴더">3. _posts 폴더</h4>
-<p>루트 폴더에 하위에 카테고리에 맞춰 폴더 추가한 뒤 해당 카테고리 하위에 _posts 폴더 추가</p>
-<ul>
-  <li>예를 들어 ios/solutions에 해당하는 카테고리에 글을 추가하는 경우 다음과 같이 폴더를 만든 뒤 _post에 <strong>yyyy-mm-dd-글제목.md</strong> 형태로 글을 추가</li>
-</ul>
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
 
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/fde6c4c7-3a5f-4673-ae7e-e79c8698f4c8" /></p>
+  <a href="https://twitter.com/intent/tweet?text=%5Bswift%5D+%EB%8D%B0%EC%9D%B4%ED%84%B0+%ED%83%80%EC%9E%85+%EA%B3%A0%EA%B8%89+%28%ED%8A%9C%ED%94%8C%2C+%EC%BB%AC%EB%A0%89%EC%85%98%2C+%EC%97%B4%EA%B1%B0%ED%98%95%29%20http%3A%2F%2Flocalhost%3A4000%2Fios%2Fswift%2Fdata-type-advanced%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-<h3 id="4️⃣-결과물">4️⃣ 결과물</h3>
-<p>flutter/solutions 카테고리를 클릭했을 때 1) flutter 2) solutions <strong>두 개의 카테고리가 모두 설정된 글들만</strong> 선택되어 노출</p>
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b80ce01c-7cfa-47f5-8854-977dd2096989" /></p>]]></content><author><name>sseymorr</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;git&quot;, &quot;solutions&quot;]" /><category term="minimal-mistakes" /><category term="GitHubPages" /><summary type="html"><![CDATA[jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!]]></summary></entry></feed>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fios%2Fswift%2Fdata-type-advanced%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/ios/swift/data-type-advanced/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" class="pagination--pager" title="[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="permalink">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/flutter/solutions/how_to_get_image_flutter_web/" rel="permalink">[플러터 웹] 이미지를 받아와 크롭하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">플러터 웹에서 이미지를 가져와 크롭해보자!
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sseymorr" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">sseymorr's paper bag</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'sseymorr/sseymorr.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    // 
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

@@ -102,7 +102,6 @@ sidebar:
   nav: "sidebar-category"
   enabled: true
 ---
-
 {% raw %}
 {% assign posts_with_flutter = site.posts | where: "categories", "flutter" %}
 {% assign posts_with_flutter_and_solutions = posts_with_flutter | where: "categories", "solutions" %}
@@ -111,7 +110,6 @@ sidebar:
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
 {% endraw %}
-
 ```
 #### 3. _posts 폴더
 루트 폴더에 하위에 카테고리에 맞춰 폴더 추가한 뒤 해당 카테고리 하위에 _posts 폴더 추가
