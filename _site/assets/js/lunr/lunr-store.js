@@ -11,9 +11,9 @@ var store = [{
         "url": "/git/solutions/how-to-categorize-in-minimal-mistakes/",
         "teaser": null
       },{
-        "title": "[swift] 데이터 타입 고급 (튜플, 컬렉션, 열거형)",
-        "excerpt":"1️⃣ 들어가기 전에… 1) 변수와 상수의 차이 (1) 변수: 값이 변경될 수 있는 저장소 프로그램 실행 중 언제든지 변수에 새로운 값 할당 가능 타입 추론 가능 1 2 3 var currentTemperature = 25.0 currentTemperature = 30.0 print(currentTemperature) // 30.0 (2) 상수: 값이 변경될 수 없는 저장소 한번 값이 할당되면 더...","categories": ["ios","swift"],
+        "title": "[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기",
+        "excerpt":"xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다. 간단하게라도 정리해보기 위해 쓰는 글! 안드로이드 개발해본 사람은 알겠지만 안드로이드 네이티브는 디버깅이 쉽다. 그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍 그러면 알아서 기기 인식까지 해주고...","categories": ["ios","xcode"],
         "tags": [],
-        "url": "/ios/swift/data-type-advanced/",
+        "url": "/ios/xcode/certificates/",
         "teaser": null
       }]

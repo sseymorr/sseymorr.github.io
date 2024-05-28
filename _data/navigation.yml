@@ -26,10 +26,12 @@ sidebar-category:
     children:
       - title: "✨ swift"
         url: "ios/swift/"
+      - title: "🛠️ xcode"
+        url: "ios/xcode/"
       - title: "🚫 errors"
         url: "ios/errors/"
       - title: "😎 solutions"
-        url: "ios/solutions/"
+        url: "ios/solutions/"  
   - title: "🖤 git"
     children:
       - title: "😎 solutions"

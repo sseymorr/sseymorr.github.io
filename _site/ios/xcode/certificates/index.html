@@ -1,0 +1,800 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.1 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기 - segyoung’s devlog</title>
+<meta name="description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+
+
+  <meta name="author" content="segyoung">
+  
+  <meta property="article:author" content="segyoung">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="segyoung's devlog">
+<meta property="og:title" content="[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
+<meta property="og:url" content="http://localhost:4000/ios/xcode/certificates/">
+
+
+  <meta property="og:description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-05-28T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/ios/xcode/certificates/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="segyoung's devlog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+    <link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://sseymorr.github.io/assets/images/favicon/apple-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://sseymorr.github.io/assets/images/favicon/favicon-16x16.png"
+/>
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          segyoung's devlog
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://sseymorr.github.io"
+                
+                
+              >home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >about</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/portfolio/"
+                
+                
+              >portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/"
+                
+                
+              >categories</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/profile/profile.PNG" alt="segyoung" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">segyoung</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>nothing much</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/sseymorr" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sseymorrr@gmail.com" rel="me" class="u-email">
+            <meta itemprop="email" content="sseymorrr@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+    
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 flutter</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/flutter/errors/" >🚫 errors</a></li>
+        
+        <li><a href="/flutter/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 ios</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/ios/swift/" >✨ swift</a></li>
+        
+        <li><a href="/ios/xcode/" >🛠️ xcode</a></li>
+        
+        <li><a href="/ios/errors/" >🚫 errors</a></li>
+        
+        <li><a href="/ios/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">🖤 git</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/git/solutions/" >😎 solutions</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">❤️‍🔥 area</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/area/english/" >🌎 english</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      
+      <span class="nav__sub-title">📚 archive</span>
+      
+
+      
+      <ul>
+        
+        <li><a href="/archive/blog/" >✏️ blog</a></li>
+        
+      </ul>
+      
+    </li>
+    
+    
+  </ul>
+</nav>
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
+    <meta itemprop="description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+    <meta itemprop="datePublished" content="2024-05-28T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/ios/xcode/certificates/" itemprop="url">[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> index</h4></header>
+              <ul class="toc__menu"><li><a href="#실제-기기로-xcode에서-빌드한-코드를-실행할-때-필요한-사항들">실제 기기로 xcode에서 빌드한 코드를 실행할 때 필요한 사항들</a></li><li><a href="#️-automatically-manage-signing">🛠️ automatically manage signing?</a></li><li><a href="#1️⃣-csr-파일-만들기">1️⃣ CSR 파일 만들기</a></li><li><a href="#2️⃣-인증서-만들기">2️⃣ 인증서 만들기</a><ul><li><a href="#1-xcode에서-인증서-만들기">1. xcode에서 인증서 만들기</a></li><li><a href="#2-애플-개발자-사이트에서-만들기">2. 애플 개발자 사이트에서 만들기</a></li></ul></li><li><a href="#3️⃣-프로비져닝-프로파일-설정하기">3️⃣ 프로비져닝 프로파일 설정하기</a></li></ul>
+            </nav>
+          </aside>
+        
+        <p>xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.</p>
+
+<p>간단하게라도 정리해보기 위해 쓰는 글!</p>
+
+<p>안드로이드 개발해본 사람은 알겠지만 안드로이드 네이티브는 디버깅이 쉽다.</p>
+
+<p>그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍</p>
+
+<p>그러면 알아서 기기 인식까지 해주고 하여튼 고작 <strong>빌드 하나</strong> 하는 데 큰 수고를 들일 필요가 없다.</p>
+
+<p><span style="font-size:150%"><strong>그런데</strong></span> ios는 안드로이드처럼 그냥 컴퓨터에 기기 연결해서 바로바로 디버깅을 할 수 있는 게 아님</p>
+
+<p>처음엔 이게 너무 당황스러웠음…</p>
+<blockquote>
+  <p>아니 고작 디버깅 하나 하겠다는데 이렇게까지 까다로워야 하나?</p>
+</blockquote>
+
+<p>그렇다… 일단 러프하게 내가 이해할 수 있는 수준으로 정리하면 이렇다.</p>
+
+<h3 id="실제-기기로-xcode에서-빌드한-코드를-실행할-때-필요한-사항들">실제 기기로 xcode에서 빌드한 코드를 실행할 때 필요한 사항들</h3>
+<hr />
+<p><strong><span style="background-color:yellow">1. CSR</span></strong></p>
+<ul>
+  <li>애플에서 발급해주는 개발자 인증서 (인증서를 발급받기 위해 필요한 일종의 자격 증명)</li>
+</ul>
+
+<p><strong><span style="background-color:yellow">2. 인증서</span></strong></p>
+<ul>
+  <li>내가 만드는 앱의 안정성과 신뢰성이 보장됨을 증명하는 애플로부터 받는 인증서</li>
+  <li>CSR을 통해 만들어야 함</li>
+</ul>
+
+<blockquote>
+  <p>이 단계에서 음? 그럼 이제 앱이 빌드되겠지? 라고 생각하면 오산이고요</p>
+</blockquote>
+
+<p><strong><span style="background-color:yellow">3. 프로비져닝 프로파일</span></strong></p>
+<ul>
+  <li>개발 중인 앱이 실행될 수 있는 기기에 대한 정보가 들어있음</li>
+  <li>즉 개발용으로 코드를 디버깅 할 때조차 <strong>인증된 기기만</strong> 앱을 실행시킬 수 있음</li>
+</ul>
+
+<hr />
+
+<p>ios 앱을 개발하는 데 있어서 필요한 인증서는 2가지다.</p>
+<ol>
+  <li>개발할 때 사용하는 인증서 - 개발용 인증서</li>
+  <li>앱을 앱스토어에 배포할 때 사용하는 인증서 - 배포용 인증서</li>
+</ol>
+
+<p>배포용 인증서에 관해서는 archive와 함께 따로 정리할 거라 오늘은 일단 개발용 인증서로 코드를 빌드하고 실제 기기에서 테스트할 수 있게 해보자!</p>
+
+<h3 id="️-automatically-manage-signing">🛠️ automatically manage signing?</h3>
+<p><code class="language-plaintext highlighter-rouge">signing &amp; capability</code> 탭에서 <code class="language-plaintext highlighter-rouge">automatically manage signing</code> 체크 옵션부터 확인해보자.</p>
+
+<p>이게 뭐냐하면 위에 언급한 인증서와 프로파일을 <span style="color:red">xcode가 자동으로 생성</span>해준단 뜻이다.</p>
+
+<blockquote>
+  <p>편리하고 좋은데 그냥 인증서 같은 거 만들지 말고 이 옵션을 적극 활용하면 안될까요?</p>
+</blockquote>
+
+<p>안된다… 실제 기기에서 테스트해보고 싶으면 이 체크 옵션을 무조건 해제하고 따로 인증서를 꼭 만들어줘야 함</p>
+
+<p><strong>안 그러면 에뮬레이터에서만 돌아갑니다… 😇</strong></p>
+
+<p>자 그럼 본격적으로 개발용 인증서를 만드는 과정을 살펴보자!</p>
+
+<p class="notice--info">✋ 애플 개발자 계정 만드는 과정은 생략</p>
+
+<h3 id="1️⃣-csr-파일-만들기">1️⃣ CSR 파일 만들기</h3>
+<ul>
+  <li>
+    <p>Keychain Access 접속하여 <code class="language-plaintext highlighter-rouge">Certificate Assistant</code> -&gt; <code class="language-plaintext highlighter-rouge">Request a Certificate From a Certificate Authority</code> 선택
+<img width="691" alt="Screenshot 2024-05-28 at 9 17 35 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/22d73a9f-5334-45ef-831d-1f2c5a4a9dc3" /></p>
+  </li>
+  <li>
+    <p>이메일과 이름을 적고 <code class="language-plaintext highlighter-rouge">Saved to disk</code>와 <code class="language-plaintext highlighter-rouge">Let me specify key pair information</code> 옵션을 체크 활성화한 뒤 continue</p>
+
+    <p><img width="639" alt="Screenshot 2024-05-28 at 9 20 49 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7175fb3d-38e7-41a7-a44d-d3c4da8a55db" />
+  <img width="634" alt="Screenshot 2024-05-28 at 9 21 11 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/85628af1-699e-4a76-8a08-e314cb8ed401" /></p>
+  </li>
+  <li>
+    <p>CSR 파일 저장된 것 확인 <br />
+<img width="156" alt="Screenshot 2024-05-28 at 9 21 28 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/ecff7f3d-7969-470c-891d-4cd92364607d" /></p>
+  </li>
+</ul>
+
+<h3 id="2️⃣-인증서-만들기">2️⃣ 인증서 만들기</h3>
+<p>크게 2가지 방법으로 만들 수 있는데, 개인적으로는 xcode에서 연동된 계정을 통해 만드는 게 가장 확실한 방법 같다. 
+일단 여기서는 두 가지 방법을 모두 정리해놓을 거긴 하지만 <strong>그냥 xcode에서 만드는 것이 정신 건강에 이롭다👍</strong></p>
+
+<h4 id="1-xcode에서-인증서-만들기">1. xcode에서 인증서 만들기</h4>
+
+<h4 id="2-애플-개발자-사이트에서-만들기">2. 애플 개발자 사이트에서 만들기</h4>
+
+<h3 id="3️⃣-프로비져닝-프로파일-설정하기">3️⃣ 프로비져닝 프로파일 설정하기</h3>
+
+<p>잘못된 정보가 있다면 언제든지 피드백 주세요:) 
+포스팅 작성중 …</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ios" class="page__taxonomy-item p-category" rel="tag">ios</a><span class="sep">, </span>
+    
+      <a href="/categories/#xcode" class="page__taxonomy-item p-category" rel="tag">xcode</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-28T00:00:00+09:00">May 28, 2024</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5Bxcode%5D+%EA%B0%9C%EB%B0%9C%EC%9A%A9+%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%A5%BC+%EB%A7%8C%EB%93%A4%EA%B3%A0+%EC%8B%A4%EC%A0%9C+%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C+%ED%85%8C%EC%8A%A4%ED%8A%B8+%ED%95%B4%EB%B3%B4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fios%2Fxcode%2Fcertificates%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fios%2Fxcode%2Fcertificates%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/ios/xcode/certificates/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" class="pagination--pager" title="[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="permalink">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/flutter/solutions/how_to_get_image_flutter_web/" rel="permalink">[플러터 웹] 이미지를 받아와 크롭하기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">플러터 웹에서 이미지를 가져와 크롭해보자!
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/sseymorr" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">segyoung's devlog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'sseymorr/sseymorr.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    // 
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>
