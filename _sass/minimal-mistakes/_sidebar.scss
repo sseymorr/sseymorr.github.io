@@ -19,13 +19,9 @@
   @include breakpoint($large) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-    opacity: 0.75;
+    opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-    }
 
     &.sticky {
       overflow-y: auto;
@@ -51,14 +47,14 @@
   h5,
   h6 {
     margin-bottom: 0;
-    font-family: $sans-serif-narrow;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   p,
   li {
-    font-family: $sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size: $type-size-6;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   img {
@@ -173,7 +169,7 @@
   }
 }
 .sidebar .author__name {
-  font-family: $sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: $type-size-5;
 }
 
@@ -190,7 +186,7 @@
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  font-family: $sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   z-index: 20;
   cursor: pointer;
 

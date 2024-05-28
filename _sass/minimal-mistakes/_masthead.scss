@@ -50,6 +50,9 @@
   -ms-flex-item-align: center;
   align-self: center;
   font-weight: bold;
+  font-size:larger;
+  font-style: italic;
+  font-family:Arial, Helvetica, sans-serif;
   // z-index: 20;
 }
 
@@ -65,9 +68,12 @@
   width: 100%;
   clear: both;
 
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+
   .site-nav {
     margin-left: 0;
-
     @include breakpoint($small) {
       float: right;
     }
