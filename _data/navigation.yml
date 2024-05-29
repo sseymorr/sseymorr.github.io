@@ -36,10 +36,10 @@ sidebar-category:
     children:
       - title: "😎 solutions"
         url: "git/solutions/"
-  - title: "❤️‍🔥 area"
-    children:
-      - title: "🌎 english"
-        url: "area/english/"
+  # - title: "❤️‍🔥 area"
+  #   children:
+  #     - title: "🌎 english"
+  #       url: "area/english/"
   - title: "📚 archive"
     children: 
       - title: "✏️ blog"
