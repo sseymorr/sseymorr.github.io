@@ -5,15 +5,5 @@ sidebar:
     nav: "sidebar-category"
 ---
 
-<h3 class="archive__subtitle">📮 Posts by months</h3>
-<ul class="taxonomy__index">
-    {% assign postsInMonth = site.posts | group_by_exp: 'post', 'post.date | date: "%Y/%m"' %}
-    {% for month in postsInMonth %}
-      <li>
-        <a href="#{{ month.name }}">
-          <strong>{{ month.name }}</strong> <span class="taxonomy__count">{{ month.items | size }}</span>
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+
   
