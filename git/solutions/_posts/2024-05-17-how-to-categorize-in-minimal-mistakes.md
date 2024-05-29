@@ -16,7 +16,7 @@ comments: true
 ### 1️⃣ 목표
 jekyll minimal-mistakes 테마에서 이중으로 카테고리를 분류해보기
 > 이렇게! 😀
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/3d031327-de10-4d8e-9b6e-9612778a99bd"></p>
+<p align="center"><img width="226" alt="Screenshot 2024-05-29 at 7 33 32 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/53f03224-a1bf-4466-8469-f5b73adc02cc"></p>
 
 ### 2️⃣ 기본 세팅
 #### 1. index.html
@@ -117,6 +117,5 @@ sidebar:
 
 <p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/fde6c4c7-3a5f-4673-ae7e-e79c8698f4c8"></p>
 
-### 4️⃣ 결과물
-flutter/solutions 카테고리를 클릭했을 때 1) flutter 2) solutions **두 개의 카테고리가 모두 설정된 글들만** 선택되어 노출
-<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b80ce01c-7cfa-47f5-8854-977dd2096989"></p>
+### 4️⃣ 결과
+flutter/solutions 카테고리를 클릭했을 때 1) flutter 2) solutions **두 개의 카테고리가 모두 설정된 글들만** 선택되어 노출된다! 😎
