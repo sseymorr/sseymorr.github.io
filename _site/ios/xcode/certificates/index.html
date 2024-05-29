@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기 - in limbo</title>
-<meta name="description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+<!-- begin _includes/seo.html --><title>[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기 - in limbo</title>
+<meta name="description" content="">
 
 
   <meta name="author" content="segyoung">
@@ -23,11 +23,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="in limbo">
-<meta property="og:title" content="[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
+<meta property="og:title" content="[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
 <meta property="og:url" content="http://localhost:4000/ios/xcode/certificates/">
 
 
-  <meta property="og:description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+  <meta property="og:description" content="">
 
 
 
@@ -82,10 +82,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
-
 
     <link
   rel="apple-touch-icon"
@@ -400,8 +404,8 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
-    <meta itemprop="description" content="xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.">
+    <meta itemprop="headline" content="[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기">
+    <meta itemprop="description" content="">
     <meta itemprop="datePublished" content="2024-05-28T00:00:00+09:00">
     
 
@@ -409,7 +413,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/ios/xcode/certificates/" itemprop="url">[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
+            <a href="http://localhost:4000/ios/xcode/certificates/" itemprop="url">[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
 </a>
           </h1>
           
@@ -445,19 +449,17 @@
             </nav>
           </aside>
         
-        <p>xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 &amp; 앱 서명과 관련해서 정리할 기회가 없었다.</p>
-
-<p>간단하게라도 정리해보기 위해 쓰는 글!</p>
+        <p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/2f7c3653-d46e-4c4c-8042-15d4ee3a3a15" /></p>
 
 <p>안드로이드 개발해본 사람은 알겠지만 안드로이드 네이티브는 디버깅이 쉽다.</p>
 
-<p>그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍</p>
-
-<p>그러면 알아서 기기 인식까지 해주고 하여튼 고작 <strong>빌드 하나</strong> 하는 데 큰 수고를 들일 필요가 없다.</p>
+<p>그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍<br />
+그러면 알아서 기기 인식까지 해주고 하여튼 고작 <strong>빌드 하나</strong> 하는 데 큰 수고를 들일 필요가 없다.</p>
 
 <p><span style="font-size:150%"><strong>그런데</strong></span> ios는 안드로이드처럼 그냥 컴퓨터에 기기 연결해서 바로바로 디버깅을 할 수 있는 게 아님</p>
 
 <p>처음엔 이게 너무 당황스러웠음…</p>
+
 <blockquote>
   <p>아니 고작 디버깅 하나 하겠다는데 이렇게까지 까다로워야 하나?</p>
 </blockquote>
@@ -517,17 +519,15 @@
 <h3 id="1️⃣-csr-파일-만들기">1️⃣ CSR 파일 만들기</h3>
 <ul>
   <li>
-    <p>Keychain Access 접속하여 <code class="language-plaintext highlighter-rouge">Certificate Assistant</code> -&gt; <code class="language-plaintext highlighter-rouge">Request a Certificate From a Certificate Authority</code> 선택
-<img width="691" alt="Screenshot 2024-05-28 at 9 17 35 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/22d73a9f-5334-45ef-831d-1f2c5a4a9dc3" /></p>
+    <p>Keychain Access 접속하여 <code class="language-plaintext highlighter-rouge">Certificate Assistant</code> -&gt; <code class="language-plaintext highlighter-rouge">Request a Certificate From a Certificate Authority</code> 선택</p>
   </li>
   <li>
-    <p>이메일과 이름을 적고 <code class="language-plaintext highlighter-rouge">Saved to disk</code>와 <code class="language-plaintext highlighter-rouge">Let me specify key pair information</code> 옵션을 체크 활성화한 뒤 continue</p>
-
-    <p><img width="639" alt="Screenshot 2024-05-28 at 9 20 49 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7175fb3d-38e7-41a7-a44d-d3c4da8a55db" />
-  <img width="634" alt="Screenshot 2024-05-28 at 9 21 11 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/85628af1-699e-4a76-8a08-e314cb8ed401" /></p>
+    <p>이메일과 이름을 적고 <code class="language-plaintext highlighter-rouge">Saved to disk</code>와 <code class="language-plaintext highlighter-rouge">Let me specify key pair information</code> 옵션을 체크 활성화한 뒤 continue<br />
+  <img width="634" alt="Screenshot 2024-05-29 at 16 45 50" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c251da85-4637-4683-94cc-97606aa084b7" />
+  <img width="634" alt="Screenshot 2024-05-29 at 16 46 27" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c9947596-8268-4b83-8d45-04592076ec05" /></p>
   </li>
   <li>
-    <p>CSR 파일 저장된 것 확인 <br />
+    <p>CSR 파일 저장된 것 확인<br />
 <img width="156" alt="Screenshot 2024-05-28 at 9 21 28 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/ecff7f3d-7969-470c-891d-4cd92364607d" /></p>
   </li>
 </ul>
@@ -537,7 +537,9 @@
 일단 여기서는 두 가지 방법을 모두 정리해놓을 거긴 하지만 <strong>그냥 xcode에서 만드는 것이 정신 건강에 이롭다👍</strong></p>
 
 <h4 id="1-xcode에서-인증서-만들기">1. xcode에서 인증서 만들기</h4>
-
+<p><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b52ddf4a-b3a7-46a7-9e6c-8965b948e96c" alt="Screenshot 2024-05-29 at 14 49 17" /><br />
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/d248ed12-7a9b-4b18-810c-de9203380b2a" alt="Screenshot 2024-05-29 at 14 51 55" />
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/35229249-38e8-443a-8e7d-bc1ea6cb6bdb" alt="Screenshot 2024-05-29 at 14 53 16" /></p>
 <h4 id="2-애플-개발자-사이트에서-만들기">2. 애플 개발자 사이트에서 만들기</h4>
 
 <h3 id="3️⃣-프로비져닝-프로파일-설정하기">3️⃣ 프로비져닝 프로파일 설정하기</h3>
@@ -581,7 +583,7 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5Bxcode%5D+%EA%B0%9C%EB%B0%9C%EC%9A%A9+%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%A5%BC+%EB%A7%8C%EB%93%A4%EA%B3%A0+%EC%8B%A4%EC%A0%9C+%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C+%ED%85%8C%EC%8A%A4%ED%8A%B8+%ED%95%B4%EB%B3%B4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fios%2Fxcode%2Fcertificates%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BXcode%5D+%EA%B0%9C%EB%B0%9C%EC%9A%A9+%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%A5%BC+%EB%A7%8C%EB%93%A4%EA%B3%A0+%EC%8B%A4%EC%A0%9C+%EA%B8%B0%EA%B8%B0%EC%97%90%EC%84%9C+%ED%85%8C%EC%8A%A4%ED%8A%B8+%ED%95%B4%EB%B3%B4%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fios%2Fxcode%2Fcertificates%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fios%2Fxcode%2Fcertificates%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -664,7 +666,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/flutter/solutions/how_to_get_image_flutter_web/" rel="permalink">[플러터 웹] 이미지를 받아와 크롭하기
+        <a href="/flutter/solutions/how_to_get_image_flutter_web/" rel="permalink">[Flutter Web] 이미지를 받아와 크롭하기
 </a>
       
     </h2>

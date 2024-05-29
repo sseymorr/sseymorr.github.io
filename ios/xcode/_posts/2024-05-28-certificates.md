@@ -1,5 +1,5 @@
 ---
-title: "[xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기"
+title: "[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기"
 toc: true
 toc_label: "index"
 toc_sticky: true
@@ -9,20 +9,17 @@ category:
 tag:
 comments: true
 ---
-
-xcode로 개발하고 앱 배포를 하다 보면 인증서와 계속 씨름을 하게 되는데 매번 심사 빨리 넘기느라 급급해서 그동안 인증서 & 앱 서명과 관련해서 정리할 기회가 없었다. 
-
-간단하게라도 정리해보기 위해 쓰는 글!
+<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/2f7c3653-d46e-4c4c-8042-15d4ee3a3a15"></p>
 
 안드로이드 개발해본 사람은 알겠지만 안드로이드 네이티브는 디버깅이 쉽다.
 
-그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍
-
-그러면 알아서 기기 인식까지 해주고 하여튼 고작 **빌드 하나** 하는 데 큰 수고를 들일 필요가 없다.
+그냥 컴퓨터에 폰을 연결하기만 하면 됨 👍  
+그러면 알아서 기기 인식까지 해주고 하여튼 고작 **빌드 하나** 하는 데 큰 수고를 들일 필요가 없다.  
 
 <span style="font-size:150%">**그런데**</span> ios는 안드로이드처럼 그냥 컴퓨터에 기기 연결해서 바로바로 디버깅을 할 수 있는 게 아님
 
 처음엔 이게 너무 당황스러웠음... 
+
 > 아니 고작 디버깅 하나 하겠다는데 이렇게까지 까다로워야 하나?
 
 그렇다... 일단 러프하게 내가 이해할 수 있는 수준으로 정리하면 이렇다.
@@ -69,14 +66,13 @@ ios 앱을 개발하는 데 있어서 필요한 인증서는 2가지다.
 
 ### 1️⃣ CSR 파일 만들기
 - Keychain Access 접속하여 `Certificate Assistant` -> `Request a Certificate From a Certificate Authority` 선택
-<img width="691" alt="Screenshot 2024-05-28 at 9 17 35 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/22d73a9f-5334-45ef-831d-1f2c5a4a9dc3">
 
-- 이메일과 이름을 적고 `Saved to disk`와 `Let me specify key pair information` 옵션을 체크 활성화한 뒤 continue
 
-    <img width="639" alt="Screenshot 2024-05-28 at 9 20 49 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7175fb3d-38e7-41a7-a44d-d3c4da8a55db">
-    <img width="634" alt="Screenshot 2024-05-28 at 9 21 11 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/85628af1-699e-4a76-8a08-e314cb8ed401">
+- 이메일과 이름을 적고 `Saved to disk`와 `Let me specify key pair information` 옵션을 체크 활성화한 뒤 continue  
+    <img width="634" alt="Screenshot 2024-05-29 at 16 45 50" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c251da85-4637-4683-94cc-97606aa084b7">
+    <img width="634" alt="Screenshot 2024-05-29 at 16 46 27" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c9947596-8268-4b83-8d45-04592076ec05">
 
-- CSR 파일 저장된 것 확인   
+- CSR 파일 저장된 것 확인  
 <img width="156" alt="Screenshot 2024-05-28 at 9 21 28 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/ecff7f3d-7969-470c-891d-4cd92364607d">
 
 ### 2️⃣ 인증서 만들기
@@ -84,7 +80,9 @@ ios 앱을 개발하는 데 있어서 필요한 인증서는 2가지다.
 일단 여기서는 두 가지 방법을 모두 정리해놓을 거긴 하지만 **그냥 xcode에서 만드는 것이 정신 건강에 이롭다👍** 
 
 #### 1. xcode에서 인증서 만들기
-
+![Screenshot 2024-05-29 at 14 49 17](https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b52ddf4a-b3a7-46a7-9e6c-8965b948e96c)  
+![Screenshot 2024-05-29 at 14 51 55](https://github.com/sseymorr/sseymorr.github.io/assets/169756711/d248ed12-7a9b-4b18-810c-de9203380b2a)
+![Screenshot 2024-05-29 at 14 53 16](https://github.com/sseymorr/sseymorr.github.io/assets/169756711/35229249-38e8-443a-8e7d-bc1ea6cb6bdb)
 #### 2. 애플 개발자 사이트에서 만들기
 
 ### 3️⃣ 프로비져닝 프로파일 설정하기

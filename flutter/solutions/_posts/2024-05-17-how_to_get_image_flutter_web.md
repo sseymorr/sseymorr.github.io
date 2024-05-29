@@ -1,5 +1,5 @@
 ---
-title: "[플러터 웹] 이미지를 받아와 크롭하기"
+title: "[Flutter Web] 이미지를 받아와 크롭하기"
 excerpt: "플러터 웹에서 이미지를 가져와 크롭해보자!"
 toc: true
 toc_label: "index"
@@ -10,6 +10,7 @@ category:
 tag:
 comments: true
 ---
+
 ### 1️⃣ 목표
 flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기
 
