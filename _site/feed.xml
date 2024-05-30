@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-30T00:31:22+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기</title><link href="http://localhost:4000/ios/xcode/certificates/" rel="alternate" type="text/html" title="[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기" /><published>2024-05-28T00:00:00+09:00</published><updated>2024-05-28T00:00:00+09:00</updated><id>http://localhost:4000/ios/xcode/certificates</id><content type="html" xml:base="http://localhost:4000/ios/xcode/certificates/"><![CDATA[<p align="center"><img width="300" height="300" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/2f7c3653-d46e-4c4c-8042-15d4ee3a3a15" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-30T09:51:14+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기</title><link href="http://localhost:4000/ios/xcode/certificates/" rel="alternate" type="text/html" title="[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기" /><published>2024-05-28T00:00:00+09:00</published><updated>2024-05-28T00:00:00+09:00</updated><id>http://localhost:4000/ios/xcode/certificates</id><content type="html" xml:base="http://localhost:4000/ios/xcode/certificates/"><![CDATA[<p align="center"><img width="300" height="300" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/2f7c3653-d46e-4c4c-8042-15d4ee3a3a15" /></p>
 
 <p>안드로이드 개발해본 사람은 알겠지만 안드로이드 네이티브는 실제 기기를 통해 테스트하며 디버깅하는 과정이 매우 간단함</p>
 
@@ -13,6 +13,8 @@
 </blockquote>
 
 <p>싶겠지만… 일단 애플은 개발 중인 앱이더라도 이 앱의 안전성이 증명된 후 인증된 기기에서만 실행이 가능하다는 것만 염두에 두고 시작해보자!</p>
+
+<p class="notice--info">‼️ 이 글은 애플 개발자 사이트에서 앱 번들 ID가 추가되었음을 가정하고 작성됨</p>
 
 <h2 id="1️⃣-필요한-준비물">1️⃣ 필요한 준비물</h2>
 <p><strong><span style="background-color:yellow">1. CSR</span></strong></p>
@@ -73,7 +75,7 @@
   <li><code class="language-plaintext highlighter-rouge">Keychain Access</code> → <code class="language-plaintext highlighter-rouge">Certificate Assistant</code> → <code class="language-plaintext highlighter-rouge">Request a Certificate From a Certificate Authority</code> 
   <img width="694" alt="Screenshot 2024-05-29 at 7 11 08 PM" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/0e7bf735-3b96-44c4-bdc7-cb908604c8eb" /></li>
   <li>
-    <p>이메일과 이름을 적고 <code class="language-plaintext highlighter-rouge">Saved to disk</code>와 <code class="language-plaintext highlighter-rouge">Let me specify key pair information</code> 옵션을 체크 활성화한 뒤 continue<br />
+    <p>이메일과 이름을 적고 <code class="language-plaintext highlighter-rouge">Saved to disk</code>와 <code class="language-plaintext highlighter-rouge">Let me specify key pair information</code> 옵션을 체크 활성화한 뒤 <code class="language-plaintext highlighter-rouge">continue</code><br />
   <img width="634" alt="Screenshot 2024-05-29 at 16 45 50" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c251da85-4637-4683-94cc-97606aa084b7" />
   <img width="634" alt="Screenshot 2024-05-29 at 16 46 27" src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/c9947596-8268-4b83-8d45-04592076ec05" /></p>
   </li>
@@ -82,7 +84,7 @@
 
 <h3 id="2-인증서-만들기">2. 인증서 만들기</h3>
 <p>2가지 방법을 통해 만들 수 있는데, 개인적으로는 Xcode에서 연동된 계정을 통해 만드는 게 가장 확실한 방법 같다.<br />
-모두 정리해놓을 거긴 하지만 <strong>그냥 xcode에서 만드는 것이 정신 건강에 이롭다👍</strong></p>
+모두 정리해놓을 거긴 하지만 <strong>그냥 xcode에서 만드는 것이 정신건강에 이롭다👍</strong></p>
 
 <h4 id="1-xcode에서-인증서-만들기">1) xcode에서 인증서 만들기</h4>
 <ul>
@@ -99,12 +101,59 @@
 <ul>
   <li>애플 개발자 계정 → <code class="language-plaintext highlighter-rouge">Certificates, Identifiers &amp; Profiles</code> → <code class="language-plaintext highlighter-rouge">+</code> 버튼 클릭
 <img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/17d31a7e-f072-4a43-8e98-cb4dc11d7398" alt="photo_2024-05-29 19 24 24" /></li>
+  <li><code class="language-plaintext highlighter-rouge">Software</code> → <code class="language-plaintext highlighter-rouge">Apple Development</code> 체크한 뒤 필요한 서비스 체크 → <code class="language-plaintext highlighter-rouge">continue</code>
+    <ul>
+      <li>만약 앱에 푸쉬 알림 기능이 있다면 <code class="language-plaintext highlighter-rouge">Apple Push Notification service SSL (Sandbox)</code> 체크하여 진행: 일단 코드를 기기에서 빌드하는 게 목적이라면 Services는 체크하지 않고 넘어가도 됨! 
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/0b88d3de-0f46-4de2-80fc-9c8df21ad6a5" alt="Certificates, Identifiers   Profiles - Apple Developer copy" /></li>
+    </ul>
+  </li>
+  <li>앞에서 만든 CSR 파일을 첨부한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/aa7c20db-6870-4666-9c75-a4254c7663ed" alt="Screenshot 2024-05-30 at 09 12 14" /></li>
+  <li>인증서를 다운로드 받은 뒤 <code class="language-plaintext highlighter-rouge">더블 클릭</code>하면 <code class="language-plaintext highlighter-rouge">Keychain access</code>에 새로운 인증서가 추가된 것을 확인할 수 있음!
+    <ul>
+      <li>공개키 + 개인키 한 쌍이 존재해야 하고 하단 개인 키가 없으면 인증서 사용 불가
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/657ed1e3-9fb9-49f9-9b21-67b831474d2e" alt="Screenshot 2024-05-30 at 09 13 57" /></li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="3-프로비져닝-프로파일-설정하기">3. 프로비져닝 프로파일 설정하기</h3>
+<p>먼저 애플 개발자 사이트에 <strong>기기 등록</strong>부터 해야됨<br />
+애플 개발자 사이트에서 <code class="language-plaintext highlighter-rouge">Devices</code>탭에 들어간 뒤 <code class="language-plaintext highlighter-rouge">+</code> 버튼 눌러 UDID를 추가</p>
 
-<p>잘못된 정보가 있다면 언제든지 피드백 주세요:) 
-포스팅 작성중 …</p>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;xcode&quot;]" /><category term="xcode" /><category term="앱 배포" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Flutter Web] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[Flutter Web] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
+<p class="notice--primary">📌 UDID(unique device identifier): 애플 기기에 할당되는 유일한 24글자의 문자열</p>
+<p class="notice--danger">✋ 기기 등록 수가 제한되어 있는 애플 개발자 서비스를 사용하는 경우 기기 추가 시 24 ~ 72시간이 소요될 수 있음</p>
+
+<h4 id="1-이미-개발용-프로파일이-생성되어-있는-경우">1) 이미 개발용 프로파일이 생성되어 있는 경우</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Profiles</code> 접속하여 만들어 놓은 프로파일 클릭 → <code class="language-plaintext highlighter-rouge">Edit</code> → <code class="language-plaintext highlighter-rouge">Devices</code>에서 추가한 기기를 체크 활성화
+ <img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/255549ae-2e11-47d6-821c-125d6824b158" alt="Screenshot 2024-05-30 at 09 31 46" /></li>
+</ul>
+
+<h4 id="2-새로-프로파일을-만들어야-하는-경우">2) 새로 프로파일을 만들어야 하는 경우</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Profiles</code> 접속 → <code class="language-plaintext highlighter-rouge">+</code>버튼 → <code class="language-plaintext highlighter-rouge">iOS App Development</code> 체크 → <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/e1106d33-0357-4925-8f39-a2b48c82eceb" alt="Screenshot 2024-05-30 at 09 33 21" /></li>
+  <li>만든 앱의 번들 id를 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/f1accb6b-21ef-4472-9254-d28e7772e068" alt="Screenshot 2024-05-30 at 09 34 54" /></li>
+  <li>만들었던 인증서를 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/36c5e120-f5c6-4a31-aa0b-b33c65c2bb23" alt="Screenshot 2024-05-30 at 09 39 00" /></li>
+  <li>해당 앱을 실행하고 싶은 기기를 모두 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/190ff7be-3705-4c0b-a945-2d69d190ebd0" alt="Screenshot 2024-05-30 at 09 39 57" /></li>
+  <li>프로파일 이름을 설정한 뒤 <code class="language-plaintext highlighter-rouge">generate</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/1e6b6c36-ccaa-49d4-b078-58b21bd6613c" alt="Screenshot 2024-05-30 at 09 41 30" /></li>
+  <li>만든 프로파일을 다운로드 받은 뒤 Xcode의 <code class="language-plaintext highlighter-rouge">signing &amp; capability</code>에서 <code class="language-plaintext highlighter-rouge">Import Profile</code> → 다운로드 받은 프로파일을 선택하면 세팅 끝!</li>
+</ul>
+
+<p class="notice--danger">✋ <strong>개발용 프로파일의 경우 테스트하고 싶은 기기가 새로 추가될 때마다 프로파일을 수정하여 다운로드 받은 뒤 다시 Xcode에서 import 해야함</strong> <del>(왜 이렇게 불편하게 만들었는지 모르겠다)</del></p>
+
+<p>여기까지 따라왔다면 Xcode의 <code class="language-plaintext highlighter-rouge">signing &amp; capability</code> → <code class="language-plaintext highlighter-rouge">Debug</code> 탭에서 헤맬 일은 없을 것 같다!</p>
+
+<p>당장 iOS 앱을 실제 기기에서 실행해보고 싶은데 인증서 때문에 어려움을 겪었던 분들께 도움이 되는 글이었기를 바라며…</p>
+
+<p>현재 진행하고 있는 프로젝트의 앱을 배포해야되는 시점에 배포용 인증서와 관련해 글을 또 써보려고 하니 기대해주세용</p>
+
+<p>잘못된 정보가 있다면 언제든지 피드백 부탁드립니다:)</p>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;xcode&quot;]" /><category term="xcode" /><category term="앱 배포" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">[Flutter Web] 이미지를 받아와 크롭하기</title><link href="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/" rel="alternate" type="text/html" title="[Flutter Web] 이미지를 받아와 크롭하기" /><published>2024-05-17T00:00:00+09:00</published><updated>2024-05-17T00:00:00+09:00</updated><id>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web</id><content type="html" xml:base="http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/"><![CDATA[<h3 id="1️⃣-목표">1️⃣ 목표</h3>
 <p>flutter 라이브러리를 사용하여 파일 시스템에서 이미지를 받아온 뒤 이미지를 자른 후 화면에 노출시키기</p>
 
 <h3 id="2️⃣-사용한-라이브러리">2️⃣ 사용한 라이브러리</h3>
