@@ -324,3 +324,16 @@ void runIsolate(String message) {
   - [Isolate.spawn()](https://api.dart.dev/stable/dart-isolate/Isolate/spawn.html)
   - [ReceivePort](https://api.dart.dev/stable/dart-isolate/ReceivePort-class.html)
   - [SendPort](https://api.dart.dev/stable/dart-isolate/SendPort-class.html)
+
+---
+
+읽고 정리해보고 싶은 문서가 몇 개 있는데 요것들도 정리해서 올려보려고 함
+
+1. Dart에서 Isolates를 어떻게 활용하는지에 대한 문서 [Dart - Isolates](https://dart.dev/language/isolates)
+2. Flutter에서 이 Isolates로 동시성을 어떻게 해결하는지에 대한 문서 [Flutter - Concurrency and isolates](https://docs.flutter.dev/perf/isolates#message-passing-between-isolates)
+
+궁극적으로는 이 아티클 [Executing Dart in the Background with Flutter Plugins and Geofencing](https://medium.com/flutter/executing-dart-in-the-background-with-flutter-plugins-and-geofencing-2b3e40a1a124)을 이해하고픈 욕심은 있는데 잘 모르겠다... 
+
+플러터는 써드파티 라이브러리가 엄청 많은데 이게 오히려 좋은건지 잘 모르겠음  
+어떻게 쓰는지도 모르고 그냥 문서 보고 대충 갖다 붙이는 느낌이라 🤔  
+백그라운드 작업 좀 이해해보겠다고 시작하긴 했는데 뭐가 어떻게 도움이 될 지는 잘 모르겠다 
