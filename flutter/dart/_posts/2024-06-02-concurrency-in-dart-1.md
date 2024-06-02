@@ -65,7 +65,7 @@ http.get('https://example.com').then((response) {
 ```
 - 이 코드는 그럼 어떻게 이벤트 루프에서 비동기적으로 동작하는 걸까?
   - 이벤트 루프에서 실행되면 `http.get`을 호출하고 즉시 `Future`을 반환
-  - `Future`을 반환하면서 이벤트 루프에게 "http 요청이 처리될 때까지 `then()`에서 기다리라고 알려줌
+  - `Future`을 반환하면서 이벤트 루프에게 "http 요청이 처리될 때까지 `then()`에서 기다리라"고 알려줌
   - http 요청이 처리되면 처리 결과를 인자로 전달하며 `then()` 내부에 있는 콜백 부분을 실행
 
 ![Screenshot 2024-06-02 at 2 43 37 PM](https://github.com/sseymorr/sseymorr.github.io/assets/169756711/73b7787f-8107-4a6d-aef7-3865bd59b9d7)
@@ -190,7 +190,7 @@ Stream<int> sumStream(Stream<int> stream) async* {
 🔗 동시성 모델에 대한 정보를 더 얻고 싶다면 [Actor Mode](https://en.wikipedia.org/wiki/Actor_model)에 대한 문서를 참고
 {: .notice--info}
 
-⚠️ 오로지 다트 네이티브에서만 isolates를 사용할 수 있음. 다트 웹 플랫폼에서는 웹 동시성을 살펴봐야 함 
+⚠️ 오로지 다트 네이티브에서만 isolates를 사용할 수 있음. 다트 웹 플랫폼에서는 지원하지 않음.
 {: .notice--warning}
 
 ## 메인 아이솔레이트 The Main Isolate
