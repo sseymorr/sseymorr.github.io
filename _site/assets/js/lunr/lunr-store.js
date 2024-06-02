@@ -16,4 +16,22 @@ var store = [{
         "tags": ["xcode","앱 배포"],
         "url": "/ios/xcode/certificates/",
         "teaser": null
+      },{
+        "title": "Isolates",
+        "excerpt":" ","categories": ["flutter","dart"],
+        "tags": [],
+        "url": "/flutter/dart/isolates/",
+        "teaser": null
+      },{
+        "title": "[Flutter] 플러터 플러그인과 지오펜싱으로 다트 코드를 백그라운드에서 실행하기 (번역글)",
+        "excerpt":"지금 하는 프로젝트에서 주기적으로 백그라운드 작업을 통해 API를 호출해야 하는 일을 맡았다. 일단 호기롭게 “돌아가게만 해보자!” 하는 마음으로 여러 써드 파티 라이브러리를 다 적용해봤는데 죄다 실패하고 결국 돌아가는 기본 원리부터 알아보면 어떨까 하는 생각이 들었다. 이것 저것 찾아보다가 구글 플러터에서 시니어 개발자로 일하고 있는 Ben Konyi의 글을 보게 되었는데, 실제...","categories": ["flutter","solutions"],
+        "tags": [],
+        "url": "/flutter/solutions/background-service/",
+        "teaser": null
+      },{
+        "title": "[Dart] Dart에서 비동기 프로그래밍 하기",
+        "excerpt":"지금 하고 있는 프로젝트에서 백그라운드에서 일정 시간마다 위치 정보를 가져와 API를 호출하는 기능을 구현해야 하는데 일단 “돌아가게만 해보자!” 하는 심정으로 있는 써드 파티 라이브러리는 다 적용해봤단 말임? 근데 마땅한 해결책이 나오지 않아서 답답해 미치겠는 와중에 공부하는 겸 일단 비동기부터 정리하는 게 낫겠다 싶어서 공식 문서부터 차근차근 읽어보기로 함 잘못된 부분은...","categories": ["flutter","dart"],
+        "tags": [],
+        "url": "/flutter/dart/concurrency-in-dart-1/",
+        "teaser": null
       }]

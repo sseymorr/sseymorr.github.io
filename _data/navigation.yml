@@ -18,6 +18,8 @@ main:
 sidebar-category:
   - title: "🖤 flutter"
     children:
+      - title: "✨ dart"
+        url: "flutter/dart/"
       - title: "🚫 errors"
         url: "flutter/errors/"
       - title: "😎 solutions"
