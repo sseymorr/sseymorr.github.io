@@ -1,5 +1,5 @@
 ---
-title: "[Dart] Dart에서 비동기 프로그래밍 하기"
+title: "[Dart] Dart의 비동기 프로그래밍"
 excerpt: "동시성에 관한 다트 공식 문서 번역글: async-await, Future, Stream, Isolates"
 toc: true
 toc_label: "index"
