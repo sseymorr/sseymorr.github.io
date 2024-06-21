@@ -10,7 +10,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Dart] Dart에서 비동기 프로그래밍 하기 - in limbo</title>
+<!-- begin _includes/seo.html --><title>[Dart] Dart의 비동기 프로그래밍 - in limbo</title>
 <meta name="description" content="동시성에 관한 다트 공식 문서 번역글: async-await, Future, Stream, Isolates">
 
 
@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="in limbo">
-<meta property="og:title" content="[Dart] Dart에서 비동기 프로그래밍 하기">
+<meta property="og:title" content="[Dart] Dart의 비동기 프로그래밍">
 <meta property="og:url" content="http://localhost:4000/flutter/dart/concurrency-in-dart-1/">
 
 
@@ -392,7 +392,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Dart] Dart에서 비동기 프로그래밍 하기">
+    <meta itemprop="headline" content="[Dart] Dart의 비동기 프로그래밍">
     <meta itemprop="description" content="동시성에 관한 다트 공식 문서 번역글: async-await, Future, Stream, Isolates">
     <meta itemprop="datePublished" content="2024-06-02T00:00:00+09:00">
     
@@ -401,7 +401,7 @@
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" itemprop="url">[Dart] Dart에서 비동기 프로그래밍 하기
+            <a href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" itemprop="url">[Dart] Dart의 비동기 프로그래밍
 </a>
           </h1>
           
@@ -484,7 +484,7 @@
   <li>이 코드는 그럼 어떻게 이벤트 루프에서 비동기적으로 동작하는 걸까?
     <ul>
       <li>이벤트 루프에서 실행되면 <code class="language-plaintext highlighter-rouge">http.get</code>을 호출하고 즉시 <code class="language-plaintext highlighter-rouge">Future</code>을 반환</li>
-      <li><code class="language-plaintext highlighter-rouge">Future</code>을 반환하면서 이벤트 루프에게 “http 요청이 처리될 때까지 <code class="language-plaintext highlighter-rouge">then()</code>에서 기다리라고 알려줌</li>
+      <li><code class="language-plaintext highlighter-rouge">Future</code>을 반환하면서 이벤트 루프에게 “http 요청이 처리될 때까지 <code class="language-plaintext highlighter-rouge">then()</code>에서 기다리라”고 알려줌</li>
       <li>http 요청이 처리되면 처리 결과를 인자로 전달하며 <code class="language-plaintext highlighter-rouge">then()</code> 내부에 있는 콜백 부분을 실행</li>
     </ul>
   </li>
@@ -681,7 +681,7 @@
 
 <p class="notice--info">🔗 동시성 모델에 대한 정보를 더 얻고 싶다면 <a href="https://en.wikipedia.org/wiki/Actor_model">Actor Mode</a>에 대한 문서를 참고</p>
 
-<p class="notice--warning">⚠️ 오로지 다트 네이티브에서만 isolates를 사용할 수 있음. 다트 웹 플랫폼에서는 웹 동시성을 살펴봐야 함</p>
+<p class="notice--warning">⚠️ 오로지 다트 네이티브에서만 isolates를 사용할 수 있음. 다트 웹 플랫폼에서는 지원하지 않음.</p>
 
 <h2 id="메인-아이솔레이트-the-main-isolate">메인 아이솔레이트 The Main Isolate</h2>
 <ul>
@@ -788,7 +788,7 @@
 <ul>
   <li>아이솔레이트가 <code class="language-plaintext highlighter-rouge">Isolate.spawn()</code>을 호출할 때, 두 아이솔레이트는 동일한 실행 가능한 코드를 가지며 동일한 아이솔레이트 그룹에 속함
     <ul>
-      <li><u>다트 코드가 컴파일될 때 `Isolate.spawn(callback)`에서 callback에 해당하는 메소드는 이미 메모리의 코드 영역에 로드가 된 상태이고 새로 생성된 아이솔레이트는 이 로드된 메소드를 호출</u></li>
+      <li>다트 코드가 컴파일될 때 <code class="language-plaintext highlighter-rouge">Isolate.spawn(callback)</code>에서 callback에 해당하는 메소드는 <u>이미 메모리의 코드 영역에 로드가 된 상태</u>이고 새로 생성된 아이솔레이트는 이 로드된 메소드를 호출</li>
       <li>→ 아이솔레이트 그룹을 사용하면 코드 공유와 같은 성능 최적화가 가능</li>
     </ul>
   </li>
@@ -847,7 +847,7 @@
   <li>아이솔레이트는 스레드처럼 동작하지 않음</li>
   <li>각각의 아이솔레이트는 자체적인 전역 필드(상태)들을 가지고 있어서 다른 아이솔레이트에서 접근할 수 없도록 보장된다는 측면에서 스레드와 다름 (자체 메모리에 대한 접근으로 제한)
     <ul>
-      <li>예) 코드의 전역에서 변수를 선언했다면 이 변수는 아이솔레이트를 새로 생성했다면 별개의 변수처럼 되어버리기 때문에 해당 아이솔레이트에서 이 변수를 변경해도 메인 아이솔레이트에서는 변경되지 않은 상태로 남아있게 됨</li>
+      <li>예) 코드의 전역에서 변수를 선언했다면 이 변수는 아이솔레이트를 새로 생성했을 때 별개의 변수처럼 되어버리기 때문에 해당 아이솔레이트에서 이 변수를 변경해도 메인 아이솔레이트에서는 변경되지 않은 상태로 남아있게 됨</li>
     </ul>
   </li>
 </ul>
@@ -876,7 +876,7 @@
 <h1 id="4️⃣-웹에서의-동시성">4️⃣ 웹에서의 동시성</h1>
 <ul>
   <li>다트 웹은 이러한 <code class="language-plaintext highlighter-rouge">async-await</code>, <code class="language-plaintext highlighter-rouge">Future</code>, <code class="language-plaintext highlighter-rouge">Stream</code>을 사용할 수 없음</li>
-  <li><code class="language-plaintext highlighter-rouge">Web worker</code>라는 걸 사용해야 하는데 이 웹 워커는 아이솔레이트의 기능과 약간 다른데</li>
+  <li><code class="language-plaintext highlighter-rouge">Web worker</code>라는 걸 사용해야 하는데 이 웹 워커는 아이솔레이트의 기능과 약간 다름</li>
   <li>예) <code class="language-plaintext highlighter-rouge">Web worker</code>는 스레드 간 데이터를 전송할 때 데이터를 복사
     <ul>
       <li>아이솔레이트도 이렇게 데이터를 복사하는 건 똑같지만 메시지를 보관하는 메모리를 더 효율적으로 전송할 수 있는 API가 있다는 점에서 다름</li>
@@ -896,6 +896,21 @@
     </ul>
   </li>
 </ul>
+
+<hr />
+
+<p>읽고 정리해보고 싶은 문서가 몇 개 있는데 요것들도 정리해서 올려보려고 함</p>
+
+<ol>
+  <li>Dart에서 Isolates를 어떻게 활용하는지에 대한 문서 <a href="https://dart.dev/language/isolates">Dart - Isolates</a></li>
+  <li>Flutter에서 이 Isolates로 동시성을 어떻게 해결하는지에 대한 문서 <a href="https://docs.flutter.dev/perf/isolates#message-passing-between-isolates">Flutter - Concurrency and isolates</a></li>
+</ol>
+
+<p>궁극적으로는 이 아티클 <a href="https://medium.com/flutter/executing-dart-in-the-background-with-flutter-plugins-and-geofencing-2b3e40a1a124">Executing Dart in the Background with Flutter Plugins and Geofencing</a>을 이해하고픈 욕심은 있는데 잘 모르겠다…</p>
+
+<p>플러터는 써드파티 라이브러리가 엄청 많은데 이게 오히려 좋은건지 잘 모르겠음<br />
+어떻게 쓰는지도 모르고 그냥 문서 보고 대충 갖다 붙이는 느낌이라 🤔<br />
+백그라운드 작업 좀 이해해보겠다고 시작하긴 했는데 뭐가 어떻게 도움이 될 지는 잘 모르겠다</p>
 
         
       </section>
@@ -933,7 +948,7 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BDart%5D+Dart%EC%97%90%EC%84%9C+%EB%B9%84%EB%8F%99%EA%B8%B0+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%ED%95%98%EA%B8%B0%20http%3A%2F%2Flocalhost%3A4000%2Fflutter%2Fdart%2Fconcurrency-in-dart-1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BDart%5D+Dart%EC%9D%98+%EB%B9%84%EB%8F%99%EA%B8%B0+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20http%3A%2F%2Flocalhost%3A4000%2Fflutter%2Fdart%2Fconcurrency-in-dart-1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fflutter%2Fdart%2Fconcurrency-in-dart-1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -944,11 +959,12 @@
       
   <nav class="pagination">
     
-      <a href="/flutter/solutions/background-service/" class="pagination--pager" title="[Flutter] 플러터 플러그인과 지오펜싱으로 다트 코드를 백그라운드에서 실행하기 (번역글)
+      <a href="/ios/xcode/xcode-development-certificate/" class="pagination--pager" title="[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/flutter/dart/isolates-example-in-dart/" class="pagination--pager" title="[Dart] Dart에서 Isolates(아이솔레이트) 사용하기
+">Next</a>
     
   </nav>
 
@@ -975,17 +991,17 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/flutter/solutions/background-service/" rel="permalink">[Flutter] 플러터 플러그인과 지오펜싱으로 다트 코드를 백그라운드에서 실행하기 (번역글)
+        <a href="/flutter/dart/isolates-example-in-dart/" rel="permalink">[Dart] Dart에서 Isolates(아이솔레이트) 사용하기
 </a>
       
     </h2>
     
-		<p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 06/01/2024 &nbsp; <i class="far fa-folder-open"></i> flutter/solutions</p>
+		<p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 06/21/2024 &nbsp; <i class="far fa-folder-open"></i> flutter/dart</p>
 	  
     
 
 
-    <p class="archive__item-excerpt" itemprop="description">지금 하는 프로젝트에서 주기적으로 백그라운드 작업을 통해 API를 호출해야 하는 일을 맡았다.
+    <p class="archive__item-excerpt" itemprop="description">Dart에서 Isolates(아이솔레이트)를 사용하여 위치 정보를 가져오는 작업을 수행하기
 </p>
   </article>
 </div>
@@ -1001,33 +1017,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/flutter/dart/isolates/" rel="permalink">Isolates
-</a>
-      
-    </h2>
-    
-		<p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 06/01/2024 &nbsp; <i class="far fa-folder-open"></i> flutter/dart</p>
-	  
-    
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/ios/xcode/certificates/" rel="permalink">[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
+        <a href="/ios/xcode/xcode-development-certificate/" rel="permalink">[Xcode] 개발용 인증서를 만들고 실제 기기에서 테스트 해보기
 </a>
       
     </h2>
@@ -1053,7 +1043,7 @@
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/git/solutions/how-to-categorize-in-minimal-mistakes/" rel="permalink">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
+        <a href="/git/solutions/categorize-in-minimal-mistakes/" rel="permalink">[GitHub Pages] minimal-mistakes 테마에서 카테고라이징 하기
 </a>
       
     </h2>
@@ -1064,6 +1054,32 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분류해보자!
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/flutter/solutions/image-crop-in-flutter-web/" rel="permalink">[Flutter Web] 이미지를 받아와 크롭하기
+</a>
+      
+    </h2>
+    
+		<p class="archive__item-excerpt"><i class="far fa-calendar-alt"></i> 05/17/2024 &nbsp; <i class="far fa-folder-open"></i> flutter/solutions</p>
+	  
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">플러터 웹에서 이미지를 가져와 크롭해보자!
 </p>
   </article>
 </div>

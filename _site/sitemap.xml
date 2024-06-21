@@ -1,69 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>http://localhost:4000/flutter/solutions/how_to_get_image_flutter_web/</loc>
-<lastmod>2024-05-17T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/git/solutions/how-to-categorize-in-minimal-mistakes/</loc>
-<lastmod>2024-05-17T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/ios/xcode/certificates/</loc>
-<lastmod>2024-05-28T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/dart/isolates/</loc>
-<lastmod>2024-06-01T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/solutions/background-service/</loc>
-<lastmod>2024-06-01T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/dart/concurrency-in-dart-1/</loc>
-<lastmod>2024-06-02T00:00:00+09:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/about/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/archive/blog/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/dart/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/area/english/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/errors/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/ios/errors/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/portfolio/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/flutter/solutions/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/git/solutions/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/ios/solutions/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/ios/swift/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/ios/xcode/</loc>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>http://localhost:4000/flutter/dart/isolates-example-in-dart/</loc>
+        
+        <lastmod>2024-06-21T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/flutter/dart/concurrency-in-dart-1/</loc>
+        
+        <lastmod>2024-06-02T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ios/xcode/xcode-development-certificate/</loc>
+        
+        <lastmod>2024-05-28T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/git/solutions/categorize-in-minimal-mistakes/</loc>
+        
+        <lastmod>2024-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/flutter/solutions/image-crop-in-flutter-web/</loc>
+        
+        <lastmod>2024-05-17T00:00:00+09:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
 </urlset>
