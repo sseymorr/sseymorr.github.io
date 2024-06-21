@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T13:45:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Dart] Dart에서 Isolates(아이솔레이트) 사용하기</title><link href="http://localhost:4000/flutter/dart/isolates-example-in-dart/" rel="alternate" type="text/html" title="[Dart] Dart에서 Isolates(아이솔레이트) 사용하기" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/isolates-example-in-dart</id><content type="html" xml:base="http://localhost:4000/flutter/dart/isolates-example-in-dart/"><![CDATA[<h2 id="1️⃣-개요">1️⃣ 개요</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T14:41:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Dart] Dart에서 Isolates(아이솔레이트) 사용하기</title><link href="http://localhost:4000/flutter/dart/isolates-example-in-dart/" rel="alternate" type="text/html" title="[Dart] Dart에서 Isolates(아이솔레이트) 사용하기" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/isolates-example-in-dart</id><content type="html" xml:base="http://localhost:4000/flutter/dart/isolates-example-in-dart/"><![CDATA[<h2 id="1️⃣-개요">1️⃣ 개요</h2>
 <p>현재 진행하고 있는 프로젝트에서 1. 위치 정보를 가져옴 2. 가져온 위치정보를 Request로 API를 호출한 뒤 특정 화면에 진입하는 로직이 있음</p>
 
 <p>그런데 이 위치 정보를 가져오는 과정이 오래 걸려서 <del>(사실 난 잘 모르겠지만 어쨌든)</del> 이 작업을 메인 UI 스레드가 아닌 백그라운드 스레드로 동작시키라는 업무를 지시 받음</p>
@@ -263,9 +263,11 @@ Inconsistent JVM-target compatibility detected for tasks ‘compileDebugJavaWith
   <img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/d248ed12-7a9b-4b18-810c-de9203380b2a" alt="Screenshot 2024-05-29 at 14 51 55" /><br />
   <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/0acfd401-3f1d-4f6f-80f2-6d8522d847f6" alt="Screenshot 2024-06-21 at 10 28 08" /></li>
   <li>애플 개발자 계정 → <code class="language-plaintext highlighter-rouge">Certificates, Identifiers &amp; Profiles</code>에 새 인증서가 추가된 것을 확인
-  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/4c8287a8-2c49-4e95-b3cf-789321aedfff" alt="Screenshot 2024-06-21 at 10 30 17" />
-    <h3 id="3-프로비져닝-프로파일-설정하기">3. 프로비져닝 프로파일 설정하기</h3>
-  </li>
+  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/4c8287a8-2c49-4e95-b3cf-789321aedfff" alt="Screenshot 2024-06-21 at 10 30 17" /></li>
+</ul>
+
+<h3 id="3-프로비져닝-프로파일-설정하기">3. 프로비져닝 프로파일 설정하기</h3>
+<ul>
   <li><code class="language-plaintext highlighter-rouge">Profiles</code> 접속 → <code class="language-plaintext highlighter-rouge">+</code>버튼 → <code class="language-plaintext highlighter-rouge">App Store Connect</code> 체크 → <code class="language-plaintext highlighter-rouge">continue</code>
 <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/ed4181b2-c723-46f2-9c08-6624eafb2ce7" alt="Screenshot 2024-06-04 at 17 56 52" /></li>
   <li>만든 앱의 번들 id를 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
@@ -285,8 +287,39 @@ Inconsistent JVM-target compatibility detected for tasks ‘compileDebugJavaWith
 <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/6833a88d-dfa2-4e64-8233-7c5a5944f3b5" alt="Screenshot 2024-06-21 at 10 47 09" /></li>
   <li>상단 <code class="language-plaintext highlighter-rouge">Product</code> → <code class="language-plaintext highlighter-rouge">Archive</code> 클릭<br />
 <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/0f66d81f-bec8-4ec9-9c63-ad88b67cca53" alt="Screenshot 2024-06-21 at 10 48 36" /></li>
-  <li>버전 확인 후 Distribute App</li>
-</ul>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;xcode&quot;]" /><category term="xcode" /><category term="앱 배포" /><summary type="html"><![CDATA[이전에 Xcode에서 배포용 인증서와 관련한 포스팅을 작성했었는데 최근에 진행한 프로젝트의 앱 배포를 드디어 진행하게 되어서 배포용 인증서와 관련된 포스팅을 작성해보려고 한다!]]></summary></entry><entry><title type="html">[Dart] Dart의 비동기 프로그래밍</title><link href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" rel="alternate" type="text/html" title="[Dart] Dart의 비동기 프로그래밍" /><published>2024-06-02T00:00:00+09:00</published><updated>2024-06-02T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/concurrency-in-dart-1</id><content type="html" xml:base="http://localhost:4000/flutter/dart/concurrency-in-dart-1/"><![CDATA[<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7c4352cd-e25f-4d4d-ac81-487b48ceb5d3" /></p>
+  <li>버전 확인 후 Distribute App
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/67a00373-1536-4527-b026-02fb115b4278" alt="Screenshot 2024-06-21 at 14 24 07" /></li>
+  <li>테스트만 진행할 것이라면 <code class="language-plaintext highlighter-rouge">TestFlight Only</code> 옵션을, 앱스토어에 배포하고 싶다면 <code class="language-plaintext highlighter-rouge">App Store Connect</code> 옵션을 선택한 뒤 <code class="language-plaintext highlighter-rouge">Distribute</code> 
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/82866c94-f63b-4069-aa33-09274862e39f" alt="Screenshot 2024-06-21 at 14 24 17" /></li>
+</ul>
+
+<h3 id="2-테스트-플라이트에서-업데이트-기다리기">2. 테스트 플라이트에서 업데이트 기다리기</h3>
+<ul>
+  <li>애플 개발자 계정으로 접속해 <code class="language-plaintext highlighter-rouge">App Store Connect</code> → <code class="language-plaintext highlighter-rouge">Apps</code> → <code class="language-plaintext highlighter-rouge">TestFlight</code>에서 업데이트 된 버전 빌드가 올라오길 기다리기
+    <ul>
+      <li>처음에는 빈 칸으로만 보이다가 한 5-7분 정도 기다리면 아카이브해서 올린 앱이 보여짐!</li>
+      <li>테스트용으로만 올렸을 때는 <code class="language-plaintext highlighter-rouge">Testing</code>, 앱스토어 배포용으로 올렸을 때는 <code class="language-plaintext highlighter-rouge">Ready To Sumbit</code>으로 노출</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/99763f7b-9426-44cc-8b34-8ed56f0a512c" alt="Screenshot 2024-06-21 at 14 35 41" /></p>
+
+<h3 id="3-distribution에서-앱-배포하기">3. <code class="language-plaintext highlighter-rouge">Distribution</code>에서 앱 배포하기</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">iOS App</code> 우측 <code class="language-plaintext highlighter-rouge">+</code> 버튼 눌러 버전 입력하기</li>
+  <li><code class="language-plaintext highlighter-rouge">What's New in This Version</code>에 새로 업데이트된 내용 작성</li>
+  <li><code class="language-plaintext highlighter-rouge">Save</code>한 뒤 <code class="language-plaintext highlighter-rouge">Release This Version</code> 클릭
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/29af2189-fd72-4bbc-a74e-55a34a8af7c7" alt="Screenshot 2024-06-05 at 09 20 42" /></li>
+</ul>
+
+<h3 id="4-앱-심사-기다리기">4. 앱 심사 기다리기</h3>
+<p>여기까지 따라왔다면 이젠 기다리기만 하면 된다! <br />
+애플은 앱 심사가 구글보다 까다로워서 이제부터 물 떠다놓고 빌면 됨… 🙏</p>
+
+<blockquote>
+  <p>피드백 댓글은 언제나 환영입니다 :)</p>
+</blockquote>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;xcode&quot;]" /><category term="xcode" /><category term="앱 배포" /><summary type="html"><![CDATA[이전에 Xcode에서 배포용 인증서와 관련한 포스팅을 작성했었는데 최근에 진행한 프로젝트의 앱 배포를 드디어 진행하게 되어서 배포용 인증서와 관련된 포스팅을 작성해보려고 한다!]]></summary></entry><entry><title type="html">[Dart] Dart의 비동기 프로그래밍</title><link href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" rel="alternate" type="text/html" title="[Dart] Dart의 비동기 프로그래밍" /><published>2024-06-02T00:00:00+09:00</published><updated>2024-06-02T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/concurrency-in-dart-1</id><content type="html" xml:base="http://localhost:4000/flutter/dart/concurrency-in-dart-1/"><![CDATA[<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7c4352cd-e25f-4d4d-ac81-487b48ceb5d3" /></p>
 
 <p>지금 하고 있는 프로젝트에서 백그라운드에서 일정 시간마다 위치 정보를 가져와 API를 호출하는 기능을 구현해야 하는데 일단 <em>“돌아가게만 해보자!”</em> 하는 심정으로 있는 써드 파티 라이브러리는 다 적용해봤단 말임?</p>
 
