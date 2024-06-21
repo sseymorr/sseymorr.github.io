@@ -28,4 +28,16 @@ var store = [{
         "tags": [],
         "url": "/flutter/dart/isolates-example-in-dart/",
         "teaser": null
+      },{
+        "title": "[Flutter] Execution failed for task ':app:compileDebugKotlin' 에러 해결",
+        "excerpt":"Flutter 프로젝트를 빌드하다보면 가끔씩 코틀린 컴파일 관련 오류를 만나게 된다. 1. build.gradle에서 코틀린 버전 바꾸기 일단 오류 위의 로그를 살펴보면 이런 오류를 확인할 수 있음 Class ‘kotlin.Unit’ was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.9.0, expected version is 1.7.1. 코틀린 버전을 1.9.0으로...","categories": ["flutter","errors"],
+        "tags": [],
+        "url": "/flutter/errors/complieDebugKotlin-error/",
+        "teaser": null
+      },{
+        "title": "[Xcode] 배포용 인증서를 만들고 앱스토어에 앱 배포하기",
+        "excerpt":"이전에 Xcode에서 배포용 인증서와 관련한 포스팅을 작성했었는데 최근에 진행한 프로젝트의 앱 배포를 드디어 진행하게 되어서 배포용 인증서와 관련된 포스팅을 작성해보려고 한다! 실제 앱을 배포하는 과정을 제외하면 개발용 인증서를 만드는 방법과 비슷함 1️⃣ 배포용 인증서 만들기 1. CSR 파일 만들기 이 부분은 이전에 배포용 인증서 포스팅에서 언급했으니 참고해서 만드시면 됨 2....","categories": ["ios","xcode"],
+        "tags": ["xcode","앱 배포"],
+        "url": "/ios/xcode/xcode-distribution-certificate/",
+        "teaser": null
       }]

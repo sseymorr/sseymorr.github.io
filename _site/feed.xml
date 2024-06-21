@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T09:55:18+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Dart] Dart에서 Isolates(아이솔레이트) 사용하기</title><link href="http://localhost:4000/flutter/dart/isolates-example-in-dart/" rel="alternate" type="text/html" title="[Dart] Dart에서 Isolates(아이솔레이트) 사용하기" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/isolates-example-in-dart</id><content type="html" xml:base="http://localhost:4000/flutter/dart/isolates-example-in-dart/"><![CDATA[<h2 id="1️⃣-개요">1️⃣ 개요</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-21T13:45:20+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">in limbo</title><subtitle>nothing much</subtitle><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><entry><title type="html">[Dart] Dart에서 Isolates(아이솔레이트) 사용하기</title><link href="http://localhost:4000/flutter/dart/isolates-example-in-dart/" rel="alternate" type="text/html" title="[Dart] Dart에서 Isolates(아이솔레이트) 사용하기" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/isolates-example-in-dart</id><content type="html" xml:base="http://localhost:4000/flutter/dart/isolates-example-in-dart/"><![CDATA[<h2 id="1️⃣-개요">1️⃣ 개요</h2>
 <p>현재 진행하고 있는 프로젝트에서 1. 위치 정보를 가져옴 2. 가져온 위치정보를 Request로 API를 호출한 뒤 특정 화면에 진입하는 로직이 있음</p>
 
 <p>그런데 이 위치 정보를 가져오는 과정이 오래 걸려서 <del>(사실 난 잘 모르겠지만 어쨌든)</del> 이 작업을 메인 UI 스레드가 아닌 백그라운드 스레드로 동작시키라는 업무를 지시 받음</p>
@@ -162,7 +162,131 @@
 <h2 id="-참고-링크">🔗 참고 링크</h2>
 <ul>
   <li><a href="https://stackoverflow.com/questions/75950122/flutter-isolates-the-backgroundisolatebinarymessenger-instance-value-is-invalid">Flutter Isolates: The BackgroundIsolateBinaryMessenger.instance value is invalid until BackgroundIsolateBinaryMessenger.ensureInitialized is executed</a></li>
-</ul>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;dart&quot;]" /><summary type="html"><![CDATA[Dart에서 Isolates(아이솔레이트)를 사용하여 위치 정보를 가져오는 작업을 수행하기]]></summary></entry><entry><title type="html">[Dart] Dart의 비동기 프로그래밍</title><link href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" rel="alternate" type="text/html" title="[Dart] Dart의 비동기 프로그래밍" /><published>2024-06-02T00:00:00+09:00</published><updated>2024-06-02T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/concurrency-in-dart-1</id><content type="html" xml:base="http://localhost:4000/flutter/dart/concurrency-in-dart-1/"><![CDATA[<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7c4352cd-e25f-4d4d-ac81-487b48ceb5d3" /></p>
+</ul>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;dart&quot;]" /><summary type="html"><![CDATA[Dart에서 Isolates(아이솔레이트)를 사용하여 위치 정보를 가져오는 작업을 수행하기]]></summary></entry><entry><title type="html">[Flutter] Execution failed for task ‘:app:compileDebugKotlin’ 에러 해결</title><link href="http://localhost:4000/flutter/errors/complieDebugKotlin-error/" rel="alternate" type="text/html" title="[Flutter] Execution failed for task ‘:app:compileDebugKotlin’ 에러 해결" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/flutter/errors/complieDebugKotlin-error</id><content type="html" xml:base="http://localhost:4000/flutter/errors/complieDebugKotlin-error/"><![CDATA[<p>Flutter 프로젝트를 빌드하다보면 가끔씩 코틀린 컴파일 관련 오류를 만나게 된다.
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/0b58b32d-cb50-410a-82d4-32b89720056d" alt="Screenshot 2024-06-21 at 13 19 24" /></p>
+
+<h2 id="1-buildgradle에서-코틀린-버전-바꾸기">1. <code class="language-plaintext highlighter-rouge">build.gradle</code>에서 코틀린 버전 바꾸기</h2>
+<p>일단 오류 위의 로그를 살펴보면 이런 오류를 확인할 수 있음</p>
+<blockquote>
+  <p><span style="color:red">Class ‘kotlin.Unit’ was compiled with an incompatible version of Kotlin.<br />
+The binary version of its metadata is 1.9.0, expected version is 1.7.1.</span></p>
+</blockquote>
+
+<p>코틀린 버전을 1.9.0으로 맞춰달라고 하니깐 코틀린 버전부터 바꿔보자!<br />
+나는 <a href="https://kotlinlang.org/docs/releases.html#release-details">코틀린 공식 사이트</a>에서 버전 확인한 뒤 1.9.24로 맞춰줬음</p>
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="k">buildscript</span> <span class="o">{</span>
+    <span class="n">ext</span><span class="o">.</span><span class="na">kotlin_version</span> <span class="o">=</span> <span class="s1">'1.7.10'</span> <span class="c1">// 1.9.24로 변경</span>
+    <span class="k">repositories</span> <span class="o">{</span>
+        <span class="n">google</span><span class="o">()</span>
+        <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="2-buildgrdle-androidapp에서-자바-버전-바꾸기">2. <code class="language-plaintext highlighter-rouge">build.grdle (android/app)</code>에서 자바 버전 바꾸기</h2>
+<p>그리고 다시 빌드를 해보면… 또 똑같은 오류 <code class="language-plaintext highlighter-rouge">Execution failed for task ':nb_utils:compileDebugKotlin'.</code> 발생함 -_-</p>
+<blockquote>
+  <p><span style="color:red">Execution failed for task ‘:nb_utils:compileDebugKotlin’.<br />
+Inconsistent JVM-target compatibility detected for tasks ‘compileDebugJavaWithJavac’ (1.8) and ‘compileDebugKotlin’ (17).</span></p>
+</blockquote>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="n">android</span> <span class="o">{</span>
+    <span class="n">compileOptions</span> <span class="o">{</span>
+        <span class="n">sourceCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_17</span> <span class="c1">// VERSION_17로 변경</span>
+        <span class="n">targetCompatibility</span> <span class="n">JavaVersion</span><span class="o">.</span><span class="na">VERSION_17</span> <span class="c1">// VERSION_17로 변경</span>
+    <span class="o">}</span>
+
+    <span class="n">kotlinOptions</span> <span class="o">{</span>
+        <span class="n">jvmTarget</span> <span class="o">=</span> <span class="s1">'17'</span> <span class="c1">// '17'로 변경</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="3-gradleproperties에-옵션-추가">3. <code class="language-plaintext highlighter-rouge">gradle.properties</code>에 옵션 추가</h2>
+<p>빌드를 다시 해보면 하란대로 했는데 또 똑같은 오류가 발생…</p>
+<blockquote>
+  <p><span style="color:red">Execution failed for task ‘:nb_utils:compileDebugKotlin’.<br />
+Inconsistent JVM-target compatibility detected for tasks ‘compileDebugJavaWithJavac’ (1.8) and ‘compileDebugKotlin’ (17).</span></p>
+</blockquote>
+
+<p>그래서 검색해보니 애초에 이 jvm 관련 오류가 나지 않도록 옵션을 <code class="language-plaintext highlighter-rouge">gradle.properties</code>에 추가해주면 되는 거였음</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">kotlin.jvm.target.validation.mode = IGNORE</code> 옵션 추가
+    <div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="py">org.gradle.jvmargs</span><span class="p">=</span><span class="s">-Xmx4608m</span>
+<span class="py">android.useAndroidX</span><span class="p">=</span><span class="s">true</span>
+<span class="py">android.enableJetifier</span><span class="p">=</span><span class="s">true</span>
+<span class="py">android.defaults.buildfeatures.buildconfig</span><span class="p">=</span><span class="s">true</span>
+<span class="py">android.nonTransitiveRClass</span><span class="p">=</span><span class="s">false</span>
+<span class="py">android.nonFinalResIds</span><span class="p">=</span><span class="s">false</span>
+<span class="py">kotlin.jvm.target.validation.mode</span> <span class="p">=</span> <span class="s">IGNORE </span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="4-오류-해결-">4. 오류 해결! :)</h2>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;flutter&quot;, &quot;errors&quot;]" /><summary type="html"><![CDATA[Execution failed for task ':app:compileDebugKotlin'. > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction 에러 해결하기]]></summary></entry><entry><title type="html">[Xcode] 배포용 인증서를 만들고 앱스토어에 앱 배포하기</title><link href="http://localhost:4000/ios/xcode/xcode-distribution-certificate/" rel="alternate" type="text/html" title="[Xcode] 배포용 인증서를 만들고 앱스토어에 앱 배포하기" /><published>2024-06-21T00:00:00+09:00</published><updated>2024-06-21T00:00:00+09:00</updated><id>http://localhost:4000/ios/xcode/xcode-distribution-certificate</id><content type="html" xml:base="http://localhost:4000/ios/xcode/xcode-distribution-certificate/"><![CDATA[<p>이전에 Xcode에서 <a href="https://sseymorr.github.io/ios/xcode/xcode-development-certificate/">배포용 인증서와 관련한 포스팅</a>을 작성했었는데 최근에 진행한 프로젝트의 앱 배포를 드디어 진행하게 되어서 배포용 인증서와 관련된 포스팅을 작성해보려고 한다!</p>
+
+<p>실제 앱을 배포하는 과정을 제외하면 개발용 인증서를 만드는 방법과 비슷함</p>
+
+<h2 id="1️⃣-배포용-인증서-만들기">1️⃣ 배포용 인증서 만들기</h2>
+<h3 id="1-csr-파일-만들기">1. CSR 파일 만들기</h3>
+<p>이 부분은 이전에 배포용 인증서 포스팅에서 언급했으니 참고해서 만드시면 됨</p>
+<h3 id="2-인증서-만들기">2. 인증서 만들기</h3>
+<p>xcode에서 만드는 방법과 직접 만드는 방법이 있는데, 개인적으로 xcode에서 만드는 방법을 선호하기 때문에 xcode에서 만드는 방법으로 설명해드리겠음</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Xcode</code> → <code class="language-plaintext highlighter-rouge">Accounts</code> → 애플 개발자 계정으로 로그인<br />
+  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/b52ddf4a-b3a7-46a7-9e6c-8965b948e96c" alt="Screenshot 2024-05-29 at 14 49 17" /></li>
+  <li>좌측 하단 <code class="language-plaintext highlighter-rouge">+</code> 버튼 → <code class="language-plaintext highlighter-rouge">Apple Distribution</code> 클릭
+  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/d248ed12-7a9b-4b18-810c-de9203380b2a" alt="Screenshot 2024-05-29 at 14 51 55" /><br />
+  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/0acfd401-3f1d-4f6f-80f2-6d8522d847f6" alt="Screenshot 2024-06-21 at 10 28 08" /></li>
+  <li>애플 개발자 계정 → <code class="language-plaintext highlighter-rouge">Certificates, Identifiers &amp; Profiles</code>에 새 인증서가 추가된 것을 확인
+  <img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/4c8287a8-2c49-4e95-b3cf-789321aedfff" alt="Screenshot 2024-06-21 at 10 30 17" />
+    <h3 id="3-프로비져닝-프로파일-설정하기">3. 프로비져닝 프로파일 설정하기</h3>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Profiles</code> 접속 → <code class="language-plaintext highlighter-rouge">+</code>버튼 → <code class="language-plaintext highlighter-rouge">App Store Connect</code> 체크 → <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/ed4181b2-c723-46f2-9c08-6624eafb2ce7" alt="Screenshot 2024-06-04 at 17 56 52" /></li>
+  <li>만든 앱의 번들 id를 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/ae73ff66-99f2-4fdc-b741-d0f15e59a2ac" alt="Screenshot 2024-06-04 at 17 57 04" /></li>
+  <li>만들었던 인증서를 선택한 뒤 <code class="language-plaintext highlighter-rouge">continue</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/3735f026-bd26-4969-bb43-4f903dbcc936" alt="Screenshot 2024-06-04 at 17 57 23" /></li>
+  <li>프로파일 이름을 설정한 뒤 <code class="language-plaintext highlighter-rouge">generate</code>
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/18214c89-aaf9-492a-9d32-c1af90a73023" alt="Screenshot 2024-06-04 at 18 02 19" /></li>
+  <li>만든 프로파일을 다운로드 받은 뒤 Xcode의 <code class="language-plaintext highlighter-rouge">signing &amp; capability</code>에서 <code class="language-plaintext highlighter-rouge">Import Profile</code> → 다운로드 받은 프로파일을 선택하면 세팅 끝!
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/cc74f782-b0c2-40e1-ae31-a40479912ae6" alt="Screenshot 2024-06-04 at 17 58 07" /></li>
+</ul>
+
+<h2 id="2️⃣-앱스토어에-배포하기">2️⃣ 앱스토어에 배포하기</h2>
+<h3 id="1-아카이브-하기">1. 아카이브 하기</h3>
+<ul>
+  <li>xcode 중간 상단 <code class="language-plaintext highlighter-rouge">Recent</code> 기기가 <code class="language-plaintext highlighter-rouge">Any iOS Device (arm64)</code>인지 체크
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/6833a88d-dfa2-4e64-8233-7c5a5944f3b5" alt="Screenshot 2024-06-21 at 10 47 09" /></li>
+  <li>상단 <code class="language-plaintext highlighter-rouge">Product</code> → <code class="language-plaintext highlighter-rouge">Archive</code> 클릭<br />
+<img src="https://github.com/sseymorr/sseymorr.github.io/assets/171218718/0f66d81f-bec8-4ec9-9c63-ad88b67cca53" alt="Screenshot 2024-06-21 at 10 48 36" /></li>
+  <li>버전 확인 후 Distribute App</li>
+</ul>]]></content><author><name>segyoung</name><email>sseymorrr@gmail.com</email></author><category term="[&quot;ios&quot;, &quot;xcode&quot;]" /><category term="xcode" /><category term="앱 배포" /><summary type="html"><![CDATA[이전에 Xcode에서 배포용 인증서와 관련한 포스팅을 작성했었는데 최근에 진행한 프로젝트의 앱 배포를 드디어 진행하게 되어서 배포용 인증서와 관련된 포스팅을 작성해보려고 한다!]]></summary></entry><entry><title type="html">[Dart] Dart의 비동기 프로그래밍</title><link href="http://localhost:4000/flutter/dart/concurrency-in-dart-1/" rel="alternate" type="text/html" title="[Dart] Dart의 비동기 프로그래밍" /><published>2024-06-02T00:00:00+09:00</published><updated>2024-06-02T00:00:00+09:00</updated><id>http://localhost:4000/flutter/dart/concurrency-in-dart-1</id><content type="html" xml:base="http://localhost:4000/flutter/dart/concurrency-in-dart-1/"><![CDATA[<p align="center"><img src="https://github.com/sseymorr/sseymorr.github.io/assets/169756711/7c4352cd-e25f-4d4d-ac81-487b48ceb5d3" /></p>
 
 <p>지금 하고 있는 프로젝트에서 백그라운드에서 일정 시간마다 위치 정보를 가져와 API를 호출하는 기능을 구현해야 하는데 일단 <em>“돌아가게만 해보자!”</em> 하는 심정으로 있는 써드 파티 라이브러리는 다 적용해봤단 말임?</p>
 
