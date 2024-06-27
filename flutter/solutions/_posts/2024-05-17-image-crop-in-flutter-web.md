@@ -4,9 +4,7 @@ excerpt: "플러터 웹에서 이미지를 가져와 크롭해보자!"
 toc: true
 toc_label: "index"
 toc_sticky: true
-category:
-    - flutter
-    - solutions
+categories: [flutter_solutions]
 tag:
 comments: true
 ---

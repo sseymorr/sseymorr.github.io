@@ -4,9 +4,7 @@ excerpt: "Dart에서 Isolates(아이솔레이트)를 사용하여 위치 정보�
 toc: true
 toc_label: "index"
 toc_sticky: true
-category:
-    - flutter
-    - dart
+categories: [flutter_dart]
 tag:
 comments: true
 ---

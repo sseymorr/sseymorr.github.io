@@ -4,9 +4,7 @@ excerpt: "jekyll minimal-mistakes 테마에서 카테고리를 이중으로 분�
 toc: true
 toc_label: "index"
 toc_sticky: true
-category:
-    - git
-    - solutions
+categories: [git_solutions]
 tag:
     - minimal-mistakes
     - GitHubPages
@@ -50,21 +48,32 @@ defaults:
 ### 3️⃣ 카테고리 설정하기 
 #### 1. _data/navigation.yml
  ```yml
- sidebar-category:
+sidebar-category:
   - title: "🖤 flutter"
     children:
+      - title: "✨ dart"
+        url: "flutter/dart/"
+        category: "flutter_dart"
       - title: "🚫 errors"
         url: "flutter/errors/"
+        category: "flutter_errors"
       - title: "😎 solutions"
         url: "flutter/solutions/"
+        category: "flutter_solutions"
   - title: "🖤 ios"
     children:
       - title: "✨ swift"
         url: "ios/swift/"
+        category: "ios_swift"
+      - title: "🛠️ xcode"
+        url: "ios/xcode/"
+        category: "ios_xcode"
       - title: "🚫 errors"
         url: "ios/errors/"
+        category: "ios_errors"
       - title: "😎 solutions"
         url: "ios/solutions/"
+        category: "ios_solutions"
  ```
 #### 2. _pages 폴더
 _pages 폴더 하위에 카테고리에 맞춰 폴더 생성 뒤 각 카테고리를 선택했을 때 보여줄 화면 추가
@@ -95,9 +104,7 @@ author_profile: true
 sidebar_main: true
 types: posts
 taxonomy:
-  category:
-    - flutter
-    - solutions
+categories: [flutter_solutions]
 sidebar:
   nav: "sidebar-category"
   enabled: true

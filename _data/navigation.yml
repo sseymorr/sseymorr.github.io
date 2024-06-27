@@ -1,49 +1,47 @@
 # main links
 main:
-#  - title: "Quick-Start Guide"
-#    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-   - title: "home"
-     url: https://sseymorr.github.io   
-   - title: "about"
-     url: /about/
-   - title: "portfolio"
-     url: /portfolio/     
-   - title: "categories"
-     url: /categories/
+  - title: "home"
+    url: https://sseymorr.github.io   
+  - title: "about"
+    url: /about/
+  - title: "portfolio"
+    url: /portfolio/     
+  - title: "categories"
+    url: /categories/
 
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
 sidebar-category:
   - title: "🖤 flutter"
     children:
       - title: "✨ dart"
         url: "flutter/dart/"
+        category: "flutter_dart"
       - title: "🚫 errors"
         url: "flutter/errors/"
+        category: "flutter_errors"
       - title: "😎 solutions"
         url: "flutter/solutions/"
+        category: "flutter_solutions"
   - title: "🖤 ios"
     children:
       - title: "✨ swift"
         url: "ios/swift/"
+        category: "ios_swift"
       - title: "🛠️ xcode"
         url: "ios/xcode/"
+        category: "ios_xcode"
       - title: "🚫 errors"
         url: "ios/errors/"
+        category: "ios_errors"
       - title: "😎 solutions"
-        url: "ios/solutions/"  
+        url: "ios/solutions/"
+        category: "ios_solutions"
   - title: "🖤 git"
     children:
       - title: "😎 solutions"
         url: "git/solutions/"
-  # - title: "❤️‍🔥 area"
-  #   children:
-  #     - title: "🌎 english"
-  #       url: "area/english/"
+        category: "git_solutions"
   - title: "📚 archive"
     children: 
       - title: "✏️ blog"
         url: "archive/blog/"
-      
+        category: "archive_blog"
