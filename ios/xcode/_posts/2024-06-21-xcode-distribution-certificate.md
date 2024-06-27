@@ -3,7 +3,6 @@ title: "[Xcode] 배포용 인증서를 만들고 앱스토어에 앱 배포하�
 toc: true
 toc_label: "index"
 toc_sticky: true
-categories: [ios_xcode]
 tag:
     - xcode
     - 앱 배포

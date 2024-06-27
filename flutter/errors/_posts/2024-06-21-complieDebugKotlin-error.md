@@ -5,7 +5,6 @@ excerpt: "Execution failed for task ':app:compileDebugKotlin'.
 toc: true
 toc_label: "index"
 toc_sticky: true
-categories: [flutter_errors]
 tag:
 comments: true
 ---

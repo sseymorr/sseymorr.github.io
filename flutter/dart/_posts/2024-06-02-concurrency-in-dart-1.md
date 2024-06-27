@@ -4,7 +4,6 @@ excerpt: "동시성에 관한 다트 공식 문서 번역글: async-await, Futur
 toc: true
 toc_label: "index"
 toc_sticky: true
-categories: [flutter_dart]
 tag:
 comments: true
 ---

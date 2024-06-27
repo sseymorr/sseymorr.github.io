@@ -3,7 +3,6 @@ title: "[Flutter] java.lang.RuntimeException: Unknown feature SUPPRESS_ERROR_PAG
 toc: true
 toc_label: "index"
 toc_sticky: true
-categories: [flutter_errors]
 tag:
 comments: true
 ---

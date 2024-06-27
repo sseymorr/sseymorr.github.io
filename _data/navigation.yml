@@ -14,13 +14,10 @@ sidebar-category:
     children:
       - title: "✨ dart"
         url: "flutter/dart/"
-        category: "flutter_dart"
       - title: "🚫 errors"
         url: "flutter/errors/"
-        category: "flutter_errors"
       - title: "😎 solutions"
         url: "flutter/solutions/"
-        category: "flutter_solutions"
   - title: "🖤 ios"
     children:
       - title: "✨ swift"
@@ -28,18 +25,14 @@ sidebar-category:
         category: "ios_swift"
       - title: "🛠️ xcode"
         url: "ios/xcode/"
-        category: "ios_xcode"
       - title: "🚫 errors"
         url: "ios/errors/"
-        category: "ios_errors"
       - title: "😎 solutions"
         url: "ios/solutions/"
-        category: "ios_solutions"
   - title: "🖤 git"
     children:
       - title: "😎 solutions"
         url: "git/solutions/"
-        category: "git_solutions"
   - title: "📚 archive"
     children: 
       - title: "✏️ blog"
