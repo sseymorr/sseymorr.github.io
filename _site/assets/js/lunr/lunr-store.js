@@ -46,4 +46,10 @@ var store = [{
         "tags": [],
         "url": "/flutter/errors/suppress-error-page/",
         "teaser": null
+      },{
+        "title": "[Flutter] Riverpod으로 상태를 관리하는 간단한 예제",
+        "excerpt":"목표 10초마다 위치 정보를 받아오는 provider를 만들고, 위치 정보가 바뀌면 특정 화면 UI에 경도와 위도 값을 표시해주고 싶음 Riverpod Flutter/Dart를 위한 반응형 캐싱 프레임워크(Reactive caching framework)로 getX, provider 등과 같은 플러터의 상태 관리 패키지 중 하나 프로젝트 세팅 라이브러리 세팅 pubspec.yaml 1 2 3 dependencies: flutter_riverpod: ^2.5.1 geolocator: ^12.0.0 riverpod...","categories": ["flutter","solutions"],
+        "tags": [],
+        "url": "/flutter/solutions/riverpod-example-1/",
+        "teaser": null
       }]
