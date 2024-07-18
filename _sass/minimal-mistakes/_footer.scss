@@ -32,9 +32,11 @@
   a {
     color: inherit;
     text-decoration: none;
+    font-family: Arial;
 
     &:hover {
       text-decoration: underline;
+      font-family: Arial;
     }
   }
 
@@ -47,7 +49,7 @@
 }
 
 .page__footer-copyright {
-  font-family: $global-font-family;
+  font-family: Arial;
   font-size: $type-size-7;
 }
 
@@ -62,8 +64,8 @@
     display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
+    font-family: Arial;
+    font-size: $type-size-7;
     text-transform: uppercase;
   }
 
