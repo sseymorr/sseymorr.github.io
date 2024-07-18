@@ -6,7 +6,7 @@
   <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
   <ul class="nav__items">
     <li>
-      <span style="font-family:'IBM Plex Sans KR';">📂 전체 글 수: {{sum}}</style>
+      <span style="font-family:'IBM Plex Sans KR';"> 💿 total posts ({{sum}})</style>
     </li>
     {% for nav in navigation %}
     <li>
