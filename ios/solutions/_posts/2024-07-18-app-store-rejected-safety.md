@@ -7,7 +7,7 @@ comments: true
 ---
 
 <p align="center"><img src="https://github.com/user-attachments/assets/893c53b8-7bcd-420f-85c8-5688f37b961e" width="500"></p>
-<p align="center">앱 스토어 심사를 넘겼는데 앱이 심사에서 거부됐다 ㅠ</p>
+<p align="center">앱이 심사에서 거부됐다 ㅠ</p>
 
 애플이 리젝 사유를 설명하면서 스크린샷을 같이 줬는데, 술 사진이 올라온 채팅방 캡쳐였다. 이게 뭐가 문젠가 싶어서 검색해보니 대략적으로 신고 기능을 추가해야한다는 얘기였는데, *앱에는 사용자를 개별로 차단할 수 있는 기능이 이미 구현된 상태였다.*
 
@@ -46,4 +46,5 @@ Learn more about our policies for user-generated content in [App Review Guidelin
 </p>
 
 ## 3. 해결
-기획 팀에 사용자가 생성한 컨텐츠에 대해서 신고할 수 있는 기능을 기획해달라고 요청했다. 이에 따라 작업을 진행한 뒤 다시 심사를 넘길 예정이다. (포스팅 작성 중)
+기획 팀에 사용자가 생성한 컨텐츠에 대해서 신고할 수 있는 기능을 기획해달라고 요청했다. 이에 따라 작업을 진행한 뒤 다시 심사를 넘겼더니 승인되었다 ^_^v 🎉🎉🎉
+![Screenshot 2024-07-24 at 11 16 52](https://github.com/user-attachments/assets/5a4061e1-6a7e-4a29-88aa-76df7755b58d)
