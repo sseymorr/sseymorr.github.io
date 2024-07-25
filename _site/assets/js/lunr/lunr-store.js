@@ -58,4 +58,10 @@ var store = [{
         "tags": [],
         "url": "/ios/solutions/app-store-rejected-safety/",
         "teaser": null
+      },{
+        "title": "[GitHub Pages] minimal-mistakes 테마에서 코드블럭을 라이트 모드로 바꾸기",
+        "excerpt":"Minimal-mistakes로 깃헙 블로그를 만들면 default 테마가 적용되는데, 이 테마의 코드 블럭 스타일은 기본적으로 다크모드다… 하지만 나는 다크모드를 별로 좋아하지 않기 때문에 코드 블럭 스타일을 라이트모드로 바꾸기로 했다 🤩 1️⃣ 코드 블럭 스타일 바꾸기 _syntax.scss 하기 코드를 통째로 복사해서 _syntax.scss 파일에 붙여넣기 하면 된다! 바꾸고 싶은 스타일이 있으면 여기서 커스텀해서 사용하시길...","categories": ["git","solutions"],
+        "tags": ["minimal-mistakes","GitHubPages"],
+        "url": "/git/solutions/codeblock-style-in-minimal-mistakes/",
+        "teaser": null
       }]
